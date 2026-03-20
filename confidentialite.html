@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Politique de Confidentialité — FIDI</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<nav id="navbar">
+  <a href="index.html" class="nav-logo">
+    <div class="nav-logo-icon">F</div>
+    <span class="nav-logo-text">FI<span>DI</span></span>
+  </a>
+  <ul class="nav-links">
+    <li><a href="comment-ca-marche.html" data-fr="Comment ça marche" data-en="How it works">Comment ça marche</a></li>
+    <li><a href="support.html" data-fr="Support" data-en="Support">Support</a></li>
+    <li>
+      <div class="lang-switcher">
+        <button class="lang-btn active" onclick="setLang('fr')">FR</button>
+        <button class="lang-btn" onclick="setLang('en')">EN</button>
+      </div>
+    </li>
+  </ul>
+  <div class="hamburger" onclick="toggleMenu()"><span></span><span></span><span></span></div>
+</nav>
+
+<div class="mobile-nav" id="mobileNav">
+  <a href="index.html" onclick="toggleMenu()">Accueil</a>
+  <a href="comment-ca-marche.html" onclick="toggleMenu()">Comment ça marche</a>
+  <a href="support.html" onclick="toggleMenu()">Support</a>
+</div>
+
+<div class="page-hero">
+  <div class="container">
+    <div class="section-tag" style="margin: 0 auto 20px;">🔒 <span data-fr="Vos données" data-en="Your data">Vos données</span></div>
+    <h1 class="section-title" data-fr="Politique de <span>Confidentialité</span>" data-en="Privacy <span>Policy</span>">Politique de <span>Confidentialité</span></h1>
+    <p class="section-subtitle" data-fr="Dernière mise à jour : janvier 2026" data-en="Last updated: January 2026">Dernière mise à jour : janvier 2026</p>
+  </div>
+</div>
+
+<section style="padding-top: 0;">
+  <div class="container" style="max-width: 800px;">
+
+    <div class="prose" id="conf-fr">
+      <div class="highlight-box">
+        <strong>Notre engagement :</strong> FIDI respecte votre vie privée. Nous collectons uniquement les données nécessaires au fonctionnement de l'application. Nous ne vendons jamais vos données à des tiers.
+      </div>
+
+      <h2>1. Responsable du traitement</h2>
+      <p>FIDI est le responsable du traitement de vos données personnelles. Pour toute question relative à la protection de vos données, vous pouvez nous contacter à : <a href="mailto:contact@fidi.app">contact@fidi.app</a></p>
+
+      <h2>2. Données collectées</h2>
+      <h3>2.1 Données de compte</h3>
+      <ul>
+        <li>Adresse email</li>
+        <li>Prénom et nom (facultatif)</li>
+        <li>Photo de profil (si connexion Google)</li>
+        <li>Préférence de langue</li>
+      </ul>
+
+      <h3>2.2 Données d'utilisation</h3>
+      <ul>
+        <li>Historique des transactions (points crédités et utilisés)</li>
+        <li>Soldes de points par commerce</li>
+        <li>QR codes générés et utilisés</li>
+      </ul>
+
+      <h3>2.3 Données de localisation</h3>
+      <p>L'application utilise votre localisation <strong>uniquement</strong> pour trier les commerces par distance. Cette donnée n'est jamais stockée sur nos serveurs.</p>
+
+      <h3>2.4 Pour les commerçants</h3>
+      <ul>
+        <li>Nom et informations du commerce</li>
+        <li>Adresse du commerce</li>
+        <li>Photos et logo du commerce</li>
+        <li>Informations de contact professionnel</li>
+      </ul>
+
+      <h2>3. Finalités du traitement</h2>
+      <p>Vos données sont utilisées pour :</p>
+      <ul>
+        <li>Créer et gérer votre compte</li>
+        <li>Gérer votre programme de fidélité</li>
+        <li>Afficher les commerces partenaires</li>
+        <li>Traiter les transactions de points</li>
+        <li>Améliorer l'application</li>
+        <li>Répondre à vos demandes de support</li>
+      </ul>
+
+      <h2>4. Base légale</h2>
+      <p>Le traitement de vos données est fondé sur :</p>
+      <ul>
+        <li><strong>L'exécution d'un contrat</strong> : pour fournir les services de l'application</li>
+        <li><strong>Votre consentement</strong> : pour la localisation</li>
+        <li><strong>Notre intérêt légitime</strong> : pour améliorer nos services</li>
+      </ul>
+
+      <h2>5. Conservation des données</h2>
+      <p>Vos données sont conservées aussi longtemps que votre compte est actif. En cas de suppression de compte, vos données personnelles sont supprimées dans un délai de 30 jours, à l'exception des données nécessaires au respect de nos obligations légales.</p>
+
+      <h2>6. Partage des données</h2>
+      <p>Nous ne vendons jamais vos données à des tiers. Vos données peuvent être partagées avec :</p>
+      <ul>
+        <li><strong>Supabase</strong> : notre prestataire d'hébergement et de base de données (serveurs en Europe)</li>
+        <li><strong>Les commerçants</strong> : uniquement votre prénom, nom et email pour identifier votre compte lors d'une transaction</li>
+      </ul>
+
+      <h2>7. Sécurité</h2>
+      <p>Nous mettons en place des mesures techniques et organisationnelles appropriées pour protéger vos données :</p>
+      <ul>
+        <li>Chiffrement des données en transit (HTTPS)</li>
+        <li>Mots de passe hashés</li>
+        <li>Contrôle d'accès strict (Row Level Security)</li>
+        <li>Sauvegardes régulières</li>
+      </ul>
+
+      <h2>8. Vos droits (RGPD)</h2>
+      <p>Conformément au RGPD, vous disposez des droits suivants :</p>
+      <ul>
+        <li><strong>Droit d'accès</strong> : obtenir une copie de vos données</li>
+        <li><strong>Droit de rectification</strong> : corriger vos données inexactes</li>
+        <li><strong>Droit à l'effacement</strong> : demander la suppression de vos données</li>
+        <li><strong>Droit à la portabilité</strong> : recevoir vos données dans un format structuré</li>
+        <li><strong>Droit d'opposition</strong> : vous opposer à certains traitements</li>
+      </ul>
+      <p>Pour exercer ces droits, contactez-nous à : <a href="mailto:contact@fidi.app">contact@fidi.app</a></p>
+
+      <h2>9. Cookies</h2>
+      <p>L'application mobile FIDI n'utilise pas de cookies. Notre site web peut utiliser des cookies techniques nécessaires à son fonctionnement (préférence de langue). Aucun cookie publicitaire n'est utilisé.</p>
+
+      <h2>10. Mineurs</h2>
+      <p>FIDI n'est pas destiné aux personnes de moins de 16 ans. Si vous avez connaissance qu'un mineur a créé un compte, contactez-nous pour que nous puissions supprimer ses données.</p>
+
+      <h2>11. Modifications</h2>
+      <p>Nous pouvons modifier cette politique à tout moment. Nous vous informerons des changements significatifs par notification dans l'application.</p>
+
+      <h2>12. Contact & Réclamations</h2>
+      <p>Pour toute question ou réclamation : <a href="mailto:contact@fidi.app">contact@fidi.app</a></p>
+      <p>Vous avez également le droit d'introduire une réclamation auprès de la CNIL : <a href="https://www.cnil.fr" target="_blank">www.cnil.fr</a></p>
+    </div>
+
+    <div class="prose" id="conf-en" style="display:none;">
+      <div class="highlight-box">
+        <strong>Our commitment:</strong> FIDI respects your privacy. We only collect data necessary for the application to function. We never sell your data to third parties.
+      </div>
+
+      <h2>1. Data Controller</h2>
+      <p>FIDI is the controller of your personal data. For any questions regarding the protection of your data, contact us at: <a href="mailto:contact@fidi.app">contact@fidi.app</a></p>
+
+      <h2>2. Data Collected</h2>
+      <h3>2.1 Account Data</h3>
+      <ul>
+        <li>Email address</li>
+        <li>First and last name (optional)</li>
+        <li>Profile photo (if Google sign-in)</li>
+        <li>Language preference</li>
+      </ul>
+
+      <h3>2.2 Usage Data</h3>
+      <ul>
+        <li>Transaction history (credited and used points)</li>
+        <li>Points balances per store</li>
+        <li>QR codes generated and used</li>
+      </ul>
+
+      <h3>2.3 Location Data</h3>
+      <p>The app uses your location <strong>only</strong> to sort stores by distance. This data is never stored on our servers.</p>
+
+      <h2>3. Purposes of Processing</h2>
+      <p>Your data is used to:</p>
+      <ul>
+        <li>Create and manage your account</li>
+        <li>Manage your loyalty program</li>
+        <li>Display partner stores</li>
+        <li>Process points transactions</li>
+        <li>Improve the application</li>
+        <li>Respond to your support requests</li>
+      </ul>
+
+      <h2>4. Data Sharing</h2>
+      <p>We never sell your data to third parties. Your data may be shared with:</p>
+      <ul>
+        <li><strong>Supabase</strong>: our hosting and database provider (servers in Europe)</li>
+        <li><strong>Merchants</strong>: only your first name, last name and email to identify your account during a transaction</li>
+      </ul>
+
+      <h2>5. Security</h2>
+      <p>We implement appropriate technical and organizational measures to protect your data:</p>
+      <ul>
+        <li>Data encryption in transit (HTTPS)</li>
+        <li>Hashed passwords</li>
+        <li>Strict access control (Row Level Security)</li>
+        <li>Regular backups</li>
+      </ul>
+
+      <h2>6. Your Rights (GDPR)</h2>
+      <p>Under GDPR, you have the following rights:</p>
+      <ul>
+        <li><strong>Right of access</strong>: obtain a copy of your data</li>
+        <li><strong>Right of rectification</strong>: correct inaccurate data</li>
+        <li><strong>Right to erasure</strong>: request deletion of your data</li>
+        <li><strong>Right to portability</strong>: receive your data in a structured format</li>
+        <li><strong>Right to object</strong>: object to certain processing</li>
+      </ul>
+      <p>To exercise these rights, contact us at: <a href="mailto:contact@fidi.app">contact@fidi.app</a></p>
+
+      <h2>7. Contact</h2>
+      <p>For any questions: <a href="mailto:contact@fidi.app">contact@fidi.app</a></p>
+    </div>
+
+    <div style="margin-top: 48px; display: flex; gap: 12px; flex-wrap: wrap;">
+      <a href="cgu.html" class="btn btn-outline" data-fr="CGU →" data-en="Terms →">CGU →</a>
+      <a href="support.html" class="btn btn-outline" data-fr="Support →" data-en="Support →">Support →</a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <a href="index.html" class="nav-logo" style="margin-bottom:16px; display:inline-flex;">
+          <div class="nav-logo-icon">F</div>
+          <span class="nav-logo-text">FI<span>DI</span></span>
+        </a>
+        <p data-fr="La fidélité locale réinventée." data-en="Local loyalty reinvented.">La fidélité locale réinventée.</p>
+      </div>
+      <div>
+        <div class="footer-title">Application</div>
+        <ul class="footer-links">
+          <li><a href="comment-ca-marche.html" data-fr="Comment ça marche" data-en="How it works">Comment ça marche</a></li>
+        </ul>
+      </div>
+      <div>
+        <div class="footer-title">Support</div>
+        <ul class="footer-links">
+          <li><a href="support.html" data-fr="Centre d'aide" data-en="Help center">Centre d'aide</a></li>
+        </ul>
+      </div>
+      <div>
+        <div class="footer-title" data-fr="Légal" data-en="Legal">Légal</div>
+        <ul class="footer-links">
+          <li><a href="cgu.html" data-fr="CGU" data-en="Terms">CGU</a></li>
+          <li><a href="confidentialite.html" data-fr="Confidentialité" data-en="Privacy">Confidentialité</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 FIDI.</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+  let currentLang = localStorage.getItem('fidi-lang') || 'fr';
+
+  function setLang(lang) {
+    currentLang = lang;
+    localStorage.setItem('fidi-lang', lang);
+    document.querySelectorAll('.lang-btn').forEach(btn => {
+      btn.classList.toggle('active', btn.textContent === lang.toUpperCase());
+    });
+    document.querySelectorAll('[data-fr]').forEach(el => {
+      const text = el.getAttribute('data-' + lang);
+      if (text) {
+        if (text.includes('<')) el.innerHTML = text;
+        else el.textContent = text;
+      }
+    });
+    document.getElementById('conf-fr').style.display = lang === 'fr' ? 'block' : 'none';
+    document.getElementById('conf-en').style.display = lang === 'en' ? 'block' : 'none';
+    document.documentElement.lang = lang;
+  }
+
+  setLang(currentLang);
+
+  function toggleMenu() {
+    document.getElementById('mobileNav').classList.toggle('open');
+  }
+
+  window.addEventListener('scroll', () => {
+    document.getElementById('navbar').style.background =
+      window.scrollY > 50 ? 'rgba(15,15,15,0.95)' : 'rgba(15,15,15,0.85)';
+  });
+</script>
+</body>
+</html>

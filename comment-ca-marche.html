@@ -1,0 +1,489 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Comment ça marche — FIDI</title>
+  <meta name="description" content="Découvrez comment utiliser FIDI, côté client et côté commerçant. Guide complet pas à pas.">
+  <link rel="stylesheet" href="style.css">
+  <style>
+    .guide-tabs {
+      display: flex;
+      gap: 8px;
+      justify-content: center;
+      margin: 40px 0;
+      background: var(--card);
+      padding: 6px;
+      border-radius: 16px;
+      border: 1px solid var(--border);
+      max-width: 400px;
+      margin: 40px auto;
+    }
+
+    .guide-tab {
+      flex: 1;
+      padding: 12px 24px;
+      border-radius: 12px;
+      border: none;
+      background: none;
+      color: var(--text-secondary);
+      font-family: 'Montserrat', sans-serif;
+      font-size: 15px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+
+    .guide-tab.active {
+      background: var(--primary);
+      color: var(--dark);
+    }
+
+    .guide-content { display: none; }
+    .guide-content.active { display: block; }
+
+    .guide-step {
+      display: grid;
+      grid-template-columns: 80px 1fr;
+      gap: 32px;
+      align-items: start;
+      padding: 40px 0;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .guide-step:last-child { border-bottom: none; }
+
+    .step-number-big {
+      width: 72px;
+      height: 72px;
+      background: rgba(255,168,0,0.1);
+      border: 2px solid rgba(255,168,0,0.3);
+      border-radius: 20px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 28px;
+      font-weight: 900;
+      color: var(--primary);
+      flex-shrink: 0;
+    }
+
+    .guide-step-title {
+      font-size: 22px;
+      font-weight: 700;
+      margin-bottom: 12px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .guide-step-title span { font-size: 28px; }
+
+    .guide-step-desc {
+      font-size: 15px;
+      color: var(--text-secondary);
+      line-height: 1.7;
+      margin-bottom: 16px;
+    }
+
+    .guide-step-tips {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    .guide-step-tips li {
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      font-size: 14px;
+      color: var(--text-secondary);
+      background: var(--dark-2);
+      padding: 10px 14px;
+      border-radius: 10px;
+      border-left: 3px solid var(--primary);
+    }
+
+    .faq-item {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      margin-bottom: 12px;
+      overflow: hidden;
+    }
+
+    .faq-question {
+      padding: 20px 24px;
+      font-size: 15px;
+      font-weight: 600;
+      cursor: pointer;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      transition: color 0.2s;
+    }
+
+    .faq-question:hover { color: var(--primary); }
+
+    .faq-answer {
+      padding: 0 24px;
+      max-height: 0;
+      overflow: hidden;
+      transition: all 0.3s;
+      font-size: 14px;
+      color: var(--text-secondary);
+      line-height: 1.7;
+    }
+
+    .faq-answer.open {
+      padding: 0 24px 20px;
+      max-height: 300px;
+    }
+
+    .faq-arrow { transition: transform 0.3s; font-size: 12px; color: var(--primary); }
+    .faq-arrow.open { transform: rotate(180deg); }
+
+    @media (max-width: 768px) {
+      .guide-step { grid-template-columns: 1fr; gap: 16px; }
+    }
+  </style>
+</head>
+<body>
+
+<nav id="navbar">
+  <a href="index.html" class="nav-logo">
+    <div class="nav-logo-icon">F</div>
+    <span class="nav-logo-text">FI<span>DI</span></span>
+  </a>
+  <ul class="nav-links">
+    <li><a href="index.html#comment-ca-marche" data-fr="Comment ça marche" data-en="How it works">Comment ça marche</a></li>
+    <li><a href="index.html#pour-qui" data-fr="Pour qui ?" data-en="For who?">Pour qui ?</a></li>
+    <li><a href="support.html" data-fr="Support" data-en="Support">Support</a></li>
+    <li>
+      <div class="lang-switcher">
+        <button class="lang-btn active" onclick="setLang('fr')">FR</button>
+        <button class="lang-btn" onclick="setLang('en')">EN</button>
+      </div>
+    </li>
+    <li><a href="index.html#telecharger" class="nav-cta" data-fr="Télécharger" data-en="Download">Télécharger</a></li>
+  </ul>
+  <div class="hamburger" onclick="toggleMenu()"><span></span><span></span><span></span></div>
+</nav>
+
+<div class="mobile-nav" id="mobileNav">
+  <a href="index.html" onclick="toggleMenu()" data-fr="Accueil" data-en="Home">Accueil</a>
+  <a href="support.html" onclick="toggleMenu()" data-fr="Support" data-en="Support">Support</a>
+  <a href="index.html#telecharger" onclick="toggleMenu()" data-fr="Télécharger" data-en="Download">Télécharger</a>
+</div>
+
+<div class="page-hero">
+  <div class="container">
+    <div class="section-tag" style="margin: 0 auto 20px;">📖 <span data-fr="Guide complet" data-en="Complete guide">Guide complet</span></div>
+    <h1 class="section-title" data-fr="Comment utiliser <span>FIDI ?</span>" data-en="How to use <span>FIDI?</span>">Comment utiliser <span>FIDI ?</span></h1>
+    <p class="section-subtitle" data-fr="Tout ce que vous devez savoir pour utiliser FIDI, que vous soyez client ou commerçant." data-en="Everything you need to know to use FIDI, whether you're a customer or a merchant.">
+      Tout ce que vous devez savoir pour utiliser FIDI, que vous soyez client ou commerçant.
+    </p>
+  </div>
+</div>
+
+<section style="padding-top: 0;">
+  <div class="container">
+
+    <!-- TABS -->
+    <div class="guide-tabs">
+      <button class="guide-tab active" onclick="switchTab('client')" data-fr="🛍️ Client" data-en="🛍️ Customer">🛍️ Client</button>
+      <button class="guide-tab" onclick="switchTab('merchant')" data-fr="🏪 Commerçant" data-en="🏪 Merchant">🏪 Commerçant</button>
+    </div>
+
+    <!-- CLIENT GUIDE -->
+    <div class="guide-content active" id="tab-client">
+      <div class="guide-step">
+        <div class="step-number-big">1</div>
+        <div>
+          <div class="guide-step-title"><span>📲</span> <span data-fr="Téléchargez et créez votre compte" data-en="Download and create your account">Téléchargez et créez votre compte</span></div>
+          <p class="guide-step-desc" data-fr="Téléchargez FIDI gratuitement sur l'App Store ou Google Play. Créez votre compte avec votre adresse email ou connectez-vous avec Google." data-en="Download FIDI for free on the App Store or Google Play. Create your account with your email address or sign in with Google.">
+            Téléchargez FIDI gratuitement sur l'App Store ou Google Play. Créez votre compte avec votre adresse email ou connectez-vous avec Google.
+          </p>
+          <ul class="guide-step-tips">
+            <li data-fr="La création de compte est 100% gratuite et prend moins d'une minute." data-en="Account creation is 100% free and takes less than a minute.">La création de compte est 100% gratuite et prend moins d'une minute.</li>
+            <li data-fr="Vous pouvez renseigner votre prénom et nom dans les paramètres pour personnaliser votre profil." data-en="You can enter your first and last name in settings to personalize your profile.">Vous pouvez renseigner votre prénom et nom dans les paramètres pour personnaliser votre profil.</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="guide-step">
+        <div class="step-number-big">2</div>
+        <div>
+          <div class="guide-step-title"><span>🗺️</span> <span data-fr="Explorez les commerces près de vous" data-en="Explore stores near you">Explorez les commerces près de vous</span></div>
+          <p class="guide-step-desc" data-fr="Depuis l'onglet Accueil, découvrez tous les commerces partenaires FIDI autour de vous. Vous pouvez filtrer par catégorie ou rechercher par nom." data-en="From the Home tab, discover all FIDI partner stores around you. You can filter by category or search by name.">
+            Depuis l'onglet Accueil, découvrez tous les commerces partenaires FIDI autour de vous. Vous pouvez filtrer par catégorie ou rechercher par nom.
+          </p>
+          <ul class="guide-step-tips">
+            <li data-fr="Les commerces sont triés par distance pour vous aider à trouver les plus proches." data-en="Stores are sorted by distance to help you find the nearest ones.">Les commerces sont triés par distance pour vous aider à trouver les plus proches.</li>
+            <li data-fr="Appuyez sur un commerce pour voir ses paliers de récompenses et vos points." data-en="Tap on a store to see its reward tiers and your points.">Appuyez sur un commerce pour voir ses paliers de récompenses et vos points.</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="guide-step">
+        <div class="step-number-big">3</div>
+        <div>
+          <div class="guide-step-title"><span>🔲</span> <span data-fr="Présentez votre QR code" data-en="Show your QR code">Présentez votre QR code</span></div>
+          <p class="guide-step-desc" data-fr="Dans l'onglet Profil, appuyez sur 'Mon QR de fidélité' pour afficher votre QR code personnel. Présentez-le au commerçant lors de votre passage en caisse pour accumuler des points." data-en="In the Profile tab, tap 'My loyalty QR' to display your personal QR code. Show it to the merchant at checkout to accumulate points.">
+            Dans l'onglet Profil, appuyez sur 'Mon QR de fidélité' pour afficher votre QR code personnel. Présentez-le au commerçant lors de votre passage en caisse pour accumuler des points.
+          </p>
+          <ul class="guide-step-tips">
+            <li data-fr="Votre QR code est unique et personnel. Il est valable indéfiniment." data-en="Your QR code is unique and personal. It is valid indefinitely.">Votre QR code est unique et personnel. Il est valable indéfiniment.</li>
+            <li data-fr="Si le commerçant ne peut pas scanner, il peut aussi rechercher votre compte par email." data-en="If the merchant can't scan, they can also search for your account by email.">Si le commerçant ne peut pas scanner, il peut aussi rechercher votre compte par email.</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="guide-step">
+        <div class="step-number-big">4</div>
+        <div>
+          <div class="guide-step-title"><span>🎁</span> <span data-fr="Échangez vos points" data-en="Redeem your points">Échangez vos points</span></div>
+          <p class="guide-step-desc" data-fr="Une fois que vous avez atteint un palier de récompense, appuyez dessus depuis votre cagnotte ou la fiche du commerce. Un QR code de récompense s'affiche — présentez-le au commerçant pour valider votre récompense." data-en="Once you've reached a reward tier, tap on it from your balance or the store page. A reward QR code is displayed — show it to the merchant to validate your reward.">
+            Une fois que vous avez atteint un palier de récompense, appuyez dessus depuis votre cagnotte ou la fiche du commerce. Un QR code de récompense s'affiche — présentez-le au commerçant pour valider votre récompense.
+          </p>
+          <ul class="guide-step-tips">
+            <li data-fr="⚠️ Les points sont débités uniquement lorsque le commerçant valide votre QR code." data-en="⚠️ Points are only deducted when the merchant validates your QR code.">⚠️ Les points sont débités uniquement lorsque le commerçant valide votre QR code.</li>
+            <li data-fr="Le QR code de récompense est à usage unique." data-en="The reward QR code is for single use.">Le QR code de récompense est à usage unique.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <!-- MERCHANT GUIDE -->
+    <div class="guide-content" id="tab-merchant">
+      <div class="guide-step">
+        <div class="step-number-big">1</div>
+        <div>
+          <div class="guide-step-title"><span>🏪</span> <span data-fr="Créez votre commerce" data-en="Create your store">Créez votre commerce</span></div>
+          <p class="guide-step-desc" data-fr="Après vous être connecté, allez dans l'onglet Gérant. Appuyez sur 'Mon commerce' pour créer votre fiche : nom, description, adresse, photos, logo et catégories." data-en="After logging in, go to the Manager tab. Tap 'My business' to create your listing: name, description, address, photos, logo and categories.">
+            Après vous être connecté, allez dans l'onglet Gérant. Appuyez sur 'Mon commerce' pour créer votre fiche : nom, description, adresse, photos, logo et catégories.
+          </p>
+          <ul class="guide-step-tips">
+            <li data-fr="Ajoutez jusqu'à 5 photos pour rendre votre fiche attractive." data-en="Add up to 5 photos to make your listing attractive.">Ajoutez jusqu'à 5 photos pour rendre votre fiche attractive.</li>
+            <li data-fr="Renseignez votre adresse complète pour apparaître dans les résultats de recherche par localisation." data-en="Enter your full address to appear in location search results.">Renseignez votre adresse complète pour apparaître dans les résultats de recherche par localisation.</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="guide-step">
+        <div class="step-number-big">2</div>
+        <div>
+          <div class="guide-step-title"><span>🎯</span> <span data-fr="Configurez vos paliers de récompenses" data-en="Configure your reward tiers">Configurez vos paliers de récompenses</span></div>
+          <p class="guide-step-desc" data-fr="Dans l'onglet Gérant, allez dans 'Paliers de récompenses'. Créez les récompenses que vous souhaitez offrir et définissez le nombre de points nécessaires pour chacune. Vous pouvez aussi définir une limite maximum de points." data-en="In the Manager tab, go to 'Reward tiers'. Create the rewards you want to offer and set the number of points required for each. You can also set a maximum points limit.">
+            Dans l'onglet Gérant, allez dans 'Paliers de récompenses'. Créez les récompenses que vous souhaitez offrir et définissez le nombre de points nécessaires pour chacune. Vous pouvez aussi définir une limite maximum de points.
+          </p>
+          <ul class="guide-step-tips">
+            <li data-fr="Exemple : 100 pts = café offert, 300 pts = -10% sur l'achat, 500 pts = produit offert." data-en="Example: 100 pts = free coffee, 300 pts = -10% on purchase, 500 pts = free product.">Exemple : 100 pts = café offert, 300 pts = -10% sur l'achat, 500 pts = produit offert.</li>
+            <li data-fr="Vous pouvez activer/désactiver un palier sans le supprimer." data-en="You can activate/deactivate a tier without deleting it.">Vous pouvez activer/désactiver un palier sans le supprimer.</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="guide-step">
+        <div class="step-number-big">3</div>
+        <div>
+          <div class="guide-step-title"><span>💳</span> <span data-fr="Créditez des points à vos clients" data-en="Credit points to your customers">Créditez des points à vos clients</span></div>
+          <p class="guide-step-desc" data-fr="Depuis l'onglet Gérant, appuyez sur 'Créditer des points'. Scannez le QR code du client ou recherchez-le par email. Entrez le nombre de points à créditer et confirmez." data-en="From the Manager tab, tap 'Credit points'. Scan the customer's QR code or search by email. Enter the number of points to credit and confirm.">
+            Depuis l'onglet Gérant, appuyez sur 'Créditer des points'. Scannez le QR code du client ou recherchez-le par email. Entrez le nombre de points à créditer et confirmez.
+          </p>
+          <ul class="guide-step-tips">
+            <li data-fr="Le scan QR est la méthode la plus rapide et évite les erreurs de frappe." data-en="QR scan is the fastest method and avoids typos.">Le scan QR est la méthode la plus rapide et évite les erreurs de frappe.</li>
+            <li data-fr="Le système vérifie automatiquement la limite maximum de points si vous en avez défini une." data-en="The system automatically checks the maximum points limit if you've set one.">Le système vérifie automatiquement la limite maximum de points si vous en avez défini une.</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="guide-step">
+        <div class="step-number-big">4</div>
+        <div>
+          <div class="guide-step-title"><span>✅</span> <span data-fr="Validez les récompenses" data-en="Validate rewards">Validez les récompenses</span></div>
+          <p class="guide-step-desc" data-fr="Lorsqu'un client souhaite utiliser ses points, appuyez sur 'Valider un QR code'. Scannez le QR code de récompense affiché sur son téléphone, vérifiez les informations et validez. Les points sont alors débités de son solde." data-en="When a customer wants to use their points, tap 'Validate a QR code'. Scan the reward QR code displayed on their phone, verify the information and validate. Points are then deducted from their balance.">
+            Lorsqu'un client souhaite utiliser ses points, appuyez sur 'Valider un QR code'. Scannez le QR code de récompense affiché sur son téléphone, vérifiez les informations et validez. Les points sont alors débités de son solde.
+          </p>
+          <ul class="guide-step-tips">
+            <li data-fr="⚠️ Les points sont débités uniquement à ce moment-là, pas quand le client génère son QR." data-en="⚠️ Points are only deducted at this moment, not when the customer generates their QR.">⚠️ Les points sont débités uniquement à ce moment-là, pas quand le client génère son QR.</li>
+            <li data-fr="Vous pouvez aussi saisir le code manuellement si la caméra ne fonctionne pas." data-en="You can also enter the code manually if the camera doesn't work.">Vous pouvez aussi saisir le code manuellement si la caméra ne fonctionne pas.</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="guide-step">
+        <div class="step-number-big">5</div>
+        <div>
+          <div class="guide-step-title"><span>👥</span> <span data-fr="Gérez votre équipe" data-en="Manage your team">Gérez votre équipe</span></div>
+          <p class="guide-step-desc" data-fr="Ajoutez des collaborateurs depuis 'Gérer le staff'. Deux rôles disponibles : Collaborateur (crédite des points et valide les QR) et Manager (accès étendu aux statistiques et à l'historique)." data-en="Add collaborators from 'Manage staff'. Two roles available: Collaborator (credits points and validates QR codes) and Manager (extended access to statistics and history).">
+            Ajoutez des collaborateurs depuis 'Gérer le staff'. Deux rôles disponibles : Collaborateur (crédite des points et valide les QR) et Manager (accès étendu aux statistiques et à l'historique).
+          </p>
+          <ul class="guide-step-tips">
+            <li data-fr="Le collaborateur doit déjà avoir un compte FIDI pour être ajouté." data-en="The collaborator must already have a FIDI account to be added.">Le collaborateur doit déjà avoir un compte FIDI pour être ajouté.</li>
+            <li data-fr="Seul le propriétaire peut modifier le commerce, les paliers et le staff." data-en="Only the owner can modify the store, tiers and staff.">Seul le propriétaire peut modifier le commerce, les paliers et le staff.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <!-- FAQ -->
+    <div style="margin-top: 80px;">
+      <div class="text-center" style="margin-bottom: 40px;">
+        <div class="section-tag" style="margin: 0 auto 20px;">❓ <span data-fr="Questions fréquentes" data-en="Frequently asked questions">Questions fréquentes</span></div>
+        <h2 class="section-title" data-fr="<span>FAQ</span>" data-en="<span>FAQ</span>"><span>FAQ</span></h2>
+      </div>
+
+      <div id="faq-list">
+        <div class="faq-item">
+          <div class="faq-question" onclick="toggleFaq(this)">
+            <span data-fr="FIDI est-il gratuit ?" data-en="Is FIDI free?">FIDI est-il gratuit ?</span>
+            <span class="faq-arrow">▼</span>
+          </div>
+          <div class="faq-answer" data-fr="Oui, FIDI est 100% gratuit pour les clients. Téléchargez l'app, créez votre compte et commencez à cumuler des points sans aucun frais." data-en="Yes, FIDI is 100% free for customers. Download the app, create your account and start earning points with no fees.">
+            Oui, FIDI est 100% gratuit pour les clients. Téléchargez l'app, créez votre compte et commencez à cumuler des points sans aucun frais.
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <div class="faq-question" onclick="toggleFaq(this)">
+            <span data-fr="Comment mes points sont-ils crédités ?" data-en="How are my points credited?">Comment mes points sont-ils crédités ?</span>
+            <span class="faq-arrow">▼</span>
+          </div>
+          <div class="faq-answer" data-fr="Les points sont crédités par le commerçant lors de votre passage en caisse. Présentez votre QR code personnel et le commerçant crédite le nombre de points correspondant à votre achat." data-en="Points are credited by the merchant when you check out. Show your personal QR code and the merchant credits the number of points corresponding to your purchase.">
+            Les points sont crédités par le commerçant lors de votre passage en caisse. Présentez votre QR code personnel et le commerçant crédite le nombre de points correspondant à votre achat.
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <div class="faq-question" onclick="toggleFaq(this)">
+            <span data-fr="Mes points expirent-ils ?" data-en="Do my points expire?">Mes points expirent-ils ?</span>
+            <span class="faq-arrow">▼</span>
+          </div>
+          <div class="faq-answer" data-fr="Non, vos points n'ont pas de date d'expiration. Ils restent sur votre compte jusqu'à ce que vous les utilisiez pour obtenir une récompense." data-en="No, your points have no expiration date. They remain on your account until you use them to get a reward.">
+            Non, vos points n'ont pas de date d'expiration. Ils restent sur votre compte jusqu'à ce que vous les utilisiez pour obtenir une récompense.
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <div class="faq-question" onclick="toggleFaq(this)">
+            <span data-fr="Je suis commerçant, comment rejoindre FIDI ?" data-en="I'm a merchant, how do I join FIDI?">Je suis commerçant, comment rejoindre FIDI ?</span>
+            <span class="faq-arrow">▼</span>
+          </div>
+          <div class="faq-answer" data-fr="Téléchargez FIDI, créez votre compte et rendez-vous dans l'onglet Gérant pour créer votre fiche commerce. C'est gratuit et prend moins de 5 minutes !" data-en="Download FIDI, create your account and go to the Manager tab to create your store listing. It's free and takes less than 5 minutes!">
+            Téléchargez FIDI, créez votre compte et rendez-vous dans l'onglet Gérant pour créer votre fiche commerce. C'est gratuit et prend moins de 5 minutes !
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <div class="faq-question" onclick="toggleFaq(this)">
+            <span data-fr="Puis-je avoir plusieurs commerces ?" data-en="Can I have multiple stores?">Puis-je avoir plusieurs commerces ?</span>
+            <span class="faq-arrow">▼</span>
+          </div>
+          <div class="faq-answer" data-fr="Oui, un même compte peut gérer plusieurs commerces. Chaque commerce a son propre programme de fidélité, ses propres paliers et sa propre équipe." data-en="Yes, one account can manage multiple stores. Each store has its own loyalty program, its own tiers and its own team.">
+            Oui, un même compte peut gérer plusieurs commerces. Chaque commerce a son propre programme de fidélité, ses propres paliers et sa propre équipe.
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div style="text-align: center; margin-top: 60px;">
+      <p style="color: var(--text-secondary); margin-bottom: 20px;" data-fr="Vous n'avez pas trouvé votre réponse ?" data-en="Didn't find your answer?">Vous n'avez pas trouvé votre réponse ?</p>
+      <a href="support.html" class="btn btn-primary" data-fr="Contacter le support →" data-en="Contact support →">Contacter le support →</a>
+    </div>
+
+  </div>
+</section>
+
+<footer>
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <a href="index.html" class="nav-logo" style="margin-bottom:16px; display:inline-flex;">
+          <div class="nav-logo-icon">F</div>
+          <span class="nav-logo-text">FI<span>DI</span></span>
+        </a>
+        <p data-fr="La fidélité locale réinventée." data-en="Local loyalty reinvented.">La fidélité locale réinventée.</p>
+      </div>
+      <div>
+        <div class="footer-title" data-fr="Application" data-en="App">Application</div>
+        <ul class="footer-links">
+          <li><a href="comment-ca-marche.html" data-fr="Comment ça marche" data-en="How it works">Comment ça marche</a></li>
+          <li><a href="index.html#telecharger" data-fr="Télécharger" data-en="Download">Télécharger</a></li>
+        </ul>
+      </div>
+      <div>
+        <div class="footer-title" data-fr="Support" data-en="Support">Support</div>
+        <ul class="footer-links">
+          <li><a href="support.html" data-fr="Centre d'aide" data-en="Help center">Centre d'aide</a></li>
+          <li><a href="support.html#contact" data-fr="Contact" data-en="Contact">Contact</a></li>
+        </ul>
+      </div>
+      <div>
+        <div class="footer-title" data-fr="Légal" data-en="Legal">Légal</div>
+        <ul class="footer-links">
+          <li><a href="cgu.html" data-fr="CGU" data-en="Terms">CGU</a></li>
+          <li><a href="confidentialite.html" data-fr="Confidentialité" data-en="Privacy">Confidentialité</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 FIDI.</span>
+      <span data-fr="Fait avec ❤️ pour les commerces locaux" data-en="Made with ❤️ for local businesses">Fait avec ❤️ pour les commerces locaux</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+  let currentLang = localStorage.getItem('fidi-lang') || 'fr';
+
+  function setLang(lang) {
+    currentLang = lang;
+    localStorage.setItem('fidi-lang', lang);
+    document.querySelectorAll('.lang-btn').forEach(btn => {
+      btn.classList.toggle('active', btn.textContent === lang.toUpperCase());
+    });
+    document.querySelectorAll('[data-fr]').forEach(el => {
+      const text = el.getAttribute('data-' + lang);
+      if (text) {
+        if (text.includes('<')) el.innerHTML = text;
+        else el.textContent = text;
+      }
+    });
+    // Update FAQ answers
+    document.querySelectorAll('.faq-answer').forEach(el => {
+      const text = el.getAttribute('data-' + lang);
+      if (text) el.textContent = text;
+    });
+    document.documentElement.lang = lang;
+  }
+
+  setLang(currentLang);
+
+  function switchTab(tab) {
+    document.querySelectorAll('.guide-tab').forEach((t, i) => {
+      t.classList.toggle('active', (i === 0 && tab === 'client') || (i === 1 && tab === 'merchant'));
+    });
+    document.querySelectorAll('.guide-content').forEach(c => c.classList.remove('active'));
+    document.getElementById('tab-' + tab).classList.add('active');
+  }
+
+  function toggleFaq(el) {
+    const answer = el.nextElementSibling;
+    const arrow = el.querySelector('.faq-arrow');
+    answer.classList.toggle('open');
+    arrow.classList.toggle('open');
+  }
+
+  function toggleMenu() {
+    document.getElementById('mobileNav').classList.toggle('open');
+  }
+
+  window.addEventListener('scroll', () => {
+    document.getElementById('navbar').style.background =
+      window.scrollY > 50 ? 'rgba(15,15,15,0.95)' : 'rgba(15,15,15,0.85)';
+  });
+</script>
+</body>
+</html>
