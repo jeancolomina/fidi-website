@@ -51,12 +51,16 @@ nav {
   align-items: center;
   gap: 0;
   text-decoration: none;
+  height: 42px;
+  overflow: visible;
 }
 
 .nav-logo-image {
   height: 42px;
   width: auto;
   display: block;
+  transform: scale(1.8);
+  transform-origin: left center;
 }
 
 .nav-links {
