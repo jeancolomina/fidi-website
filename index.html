@@ -355,19 +355,25 @@
 
     /* FOR WHOM */
     .for-whom-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 24px;
+      display: flex;
+      justify-content: center;
+      gap: 32px;
       margin-top: 56px;
+      max-width: 1040px;
+      margin-left: auto;
+      margin-right: auto;
+      flex-wrap: wrap;
     }
 
     .audience-card {
       background: var(--card);
       border: 1px solid var(--border);
       border-radius: var(--radius-xl);
-      padding: 40px 32px;
+      padding: 48px 40px;
       text-align: center;
       transition: all 0.3s;
+      flex: 1 1 420px;
+      max-width: 500px;
     }
 
     .audience-card:hover {
@@ -475,7 +481,14 @@
       .steps { grid-template-columns: 1fr; }
       .features-grid { grid-template-columns: 1fr; }
       .feature-card.featured { grid-column: auto; }
-      .for-whom-grid { grid-template-columns: 1fr; }
+      .for-whom-grid {
+        flex-direction: column;
+        align-items: center;
+      }
+      .audience-card {
+        width: 100%;
+        max-width: 560px;
+      }
       .hero-stats { gap: 20px; }
     }
   </style>
@@ -725,20 +738,6 @@
           <li data-fr="Gestion du staff avec rôles" data-en="Staff management with roles">Gestion du staff avec rôles</li>
           <li data-fr="Historique des transactions" data-en="Transaction history">Historique des transactions</li>
           <li data-fr="Aucun matériel requis" data-en="No hardware required">Aucun matériel requis</li>
-        </ul>
-      </div>
-      <div class="audience-card">
-        <span class="audience-emoji">📈</span>
-        <h3 data-fr="Investisseurs" data-en="Investors">Investisseurs</h3>
-        <p data-fr="Un marché de la fidélité locale en pleine croissance, avec une solution différenciante et scalable." data-en="A growing local loyalty market, with a differentiating and scalable solution.">
-          Un marché de la fidélité locale en pleine croissance, avec une solution différenciante et scalable.
-        </p>
-        <ul class="audience-perks">
-          <li data-fr="Marché massif sous-adressé" data-en="Massively underserved market">Marché massif sous-adressé</li>
-          <li data-fr="Modèle scalable B2B2C" data-en="Scalable B2B2C model">Modèle scalable B2B2C</li>
-          <li data-fr="Technologie moderne & fiable" data-en="Modern & reliable technology">Technologie moderne & fiable</li>
-          <li data-fr="iOS & Android natif" data-en="Native iOS & Android">iOS & Android natif</li>
-          <li data-fr="Forte rétention utilisateur" data-en="High user retention">Forte rétention utilisateur</li>
         </ul>
       </div>
     </div>
