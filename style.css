@@ -326,6 +326,11 @@ footer {
   text-align: center;
 }
 
+.page-hero .section-subtitle {
+  margin: 0 auto;
+  text-align: center;
+}
+
 .page-hero .section-title {
   font-size: clamp(32px, 5vw, 52px);
 }
