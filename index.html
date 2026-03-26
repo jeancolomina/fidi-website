@@ -141,112 +141,48 @@
       margin: 0 auto;
     }
 
-    .phone-screen {
-      padding: 16px;
+    .phone-carousel {
+      position: relative;
+      width: 100%;
+      height: calc(100% - 28px);
+      overflow: hidden;
     }
 
-    .phone-header {
-      margin-bottom: 16px;
-    }
-
-    .phone-greeting {
-      font-size: 10px;
-      color: var(--text-secondary);
-    }
-
-    .phone-title {
-      font-size: 16px;
-      font-weight: 800;
-      color: var(--text);
-    }
-
-    .phone-card {
-      background: linear-gradient(135deg, var(--primary) 0%, #FF8C00 100%);
-      border-radius: 16px;
-      padding: 16px;
-      margin-bottom: 12px;
-    }
-
-    .phone-card-label {
-      font-size: 9px;
-      font-weight: 600;
-      color: rgba(255,255,255,0.7);
-      text-transform: uppercase;
-      letter-spacing: 0.5px;
-    }
-
-    .phone-card-pts {
-      font-size: 28px;
-      font-weight: 900;
-      color: white;
-      margin: 4px 0 2px;
-    }
-
-    .phone-card-sub {
-      font-size: 9px;
-      color: rgba(255,255,255,0.7);
-    }
-
-    .phone-bar {
-      height: 5px;
-      background: rgba(255,255,255,0.3);
-      border-radius: 3px;
-      margin-top: 10px;
-    }
-
-    .phone-bar-fill {
+    .phone-carousel-track {
+      display: flex;
       height: 100%;
-      width: 65%;
-      background: white;
-      border-radius: 3px;
+      transition: transform 0.5s ease;
     }
 
-    .phone-shops {
+    .phone-carousel-slide {
+      min-width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    .phone-carousel-dots {
+      position: absolute;
+      bottom: 10px;
+      left: 50%;
+      transform: translateX(-50%);
       display: flex;
-      flex-direction: column;
-      gap: 8px;
+      gap: 6px;
+      z-index: 2;
     }
 
-    .phone-shop {
-      background: var(--dark-3);
-      border-radius: 10px;
-      padding: 10px;
-      display: flex;
-      align-items: center;
-      gap: 10px;
+    .phone-carousel-dot {
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: rgba(255,255,255,0.35);
+      cursor: pointer;
+      transition: background 0.3s, transform 0.3s;
     }
 
-    .phone-shop-icon {
-      width: 32px;
-      height: 32px;
-      border-radius: 8px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 14px;
-      flex-shrink: 0;
-    }
-
-    .phone-shop-name {
-      font-size: 10px;
-      font-weight: 700;
-      color: var(--text);
-    }
-
-    .phone-shop-pts {
-      font-size: 9px;
-      color: var(--primary);
-      font-weight: 600;
-    }
-
-    .phone-shop-badge {
-      margin-left: auto;
-      background: rgba(255,168,0,0.15);
-      color: var(--primary);
-      font-size: 8px;
-      font-weight: 700;
-      padding: 3px 7px;
-      border-radius: 100px;
+    .phone-carousel-dot.active {
+      background: var(--primary);
+      transform: scale(1.3);
     }
 
     /* HOW IT WORKS */
@@ -544,41 +480,22 @@
         <div class="phone-glow"></div>
         <div class="phone">
           <div class="phone-notch"></div>
-          <div class="phone-screen">
-            <div class="phone-header">
-              <div class="phone-greeting">Bonjour </div>
-              <div class="phone-title">Mes cagnottes</div>
+          <div class="phone-carousel">
+            <div class="phone-carousel-track">
+              <img src="screenshots/screen1.PNG" alt="Capture d'écran 1" class="phone-carousel-slide" />
+              <img src="screenshots/screen2.PNG" alt="Capture d'écran 2" class="phone-carousel-slide" />
+              <img src="screenshots/screen3.PNG" alt="Capture d'écran 3" class="phone-carousel-slide" />
+              <img src="screenshots/screen4.PNG" alt="Capture d'écran 4" class="phone-carousel-slide" />
+              <img src="screenshots/screen5.PNG" alt="Capture d'écran 5" class="phone-carousel-slide" />
+              <img src="screenshots/screen6.PNG" alt="Capture d'écran 6" class="phone-carousel-slide" />
             </div>
-            <div class="phone-card">
-              <div class="phone-card-label">Points disponibles</div>
-              <div class="phone-card-pts">340 pts</div>
-              <div class="phone-card-sub">Prochaine récompense dans 60 pts</div>
-              <div class="phone-bar"><div class="phone-bar-fill"></div></div>
-            </div>
-            <div class="phone-shops">
-              <div class="phone-shop">
-                <div class="phone-shop-icon" style="background:#FFF3D6"></div>
-                <div>
-                  <div class="phone-shop-name">Boulangerie Martin</div>
-                  <div class="phone-shop-pts">120 pts</div>
-                </div>
-                <div class="phone-shop-badge">Nouveau !</div>
-              </div>
-              <div class="phone-shop">
-                <div class="phone-shop-icon" style="background:#E8F4FF"></div>
-                <div>
-                  <div class="phone-shop-name">Café du Centre</div>
-                  <div class="phone-shop-pts">220 pts</div>
-                </div>
-                <div class="phone-shop-badge">Dispo</div>
-              </div>
-              <div class="phone-shop">
-                <div class="phone-shop-icon" style="background:#F0FFF4"></div>
-                <div>
-                  <div class="phone-shop-name">Bio & Co</div>
-                  <div class="phone-shop-pts">80 pts</div>
-                </div>
-              </div>
+            <div class="phone-carousel-dots">
+              <span class="phone-carousel-dot active"></span>
+              <span class="phone-carousel-dot"></span>
+              <span class="phone-carousel-dot"></span>
+              <span class="phone-carousel-dot"></span>
+              <span class="phone-carousel-dot"></span>
+              <span class="phone-carousel-dot"></span>
             </div>
           </div>
         </div>
@@ -759,6 +676,29 @@
       }
     });
   });
+
+  // PHONE CAROUSEL
+  (function() {
+    var track = document.querySelector('.phone-carousel-track');
+    var dots = document.querySelectorAll('.phone-carousel-dot');
+    var slides = document.querySelectorAll('.phone-carousel-slide');
+    var current = 0;
+    var total = slides.length;
+
+    function goTo(index) {
+      current = (index + total) % total;
+      track.style.transform = 'translateX(-' + (current * 100) + '%)';
+      dots.forEach(function(d, i) {
+        d.classList.toggle('active', i === current);
+      });
+    }
+
+    dots.forEach(function(dot, i) {
+      dot.addEventListener('click', function() { goTo(i); });
+    });
+
+    setInterval(function() { goTo(current + 1); }, 3500);
+  })();
 </script>
 </body>
 </html>
