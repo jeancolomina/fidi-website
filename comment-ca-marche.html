@@ -107,7 +107,6 @@
       background: var(--dark-2);
       padding: 10px 14px;
       border-radius: 10px;
-      border-left: 3px solid var(--primary);
     }
 
     .faq-item {
@@ -156,34 +155,12 @@
 </head>
 <body>
 
-<nav id="navbar">
-  <a href="index.html" class="nav-logo">
-    <img src="fidee_logo_blanc.svg" alt="FIDEE" class="nav-logo-image">
-  </a>
-  <ul class="nav-links">
-    <li><a href="index.html#comment-ca-marche" data-fr="Comment ça marche" data-en="How it works">Comment ça marche</a></li>
-    <li><a href="index.html#pour-qui" data-fr="Pour qui ?" data-en="For who?">Pour qui ?</a></li>
-    <li><a href="support.html" data-fr="Support" data-en="Support">Support</a></li>
-    <li>
-      <div class="lang-switcher">
-        <button class="lang-btn active" onclick="setLang('fr')">FR</button>
-        <button class="lang-btn" onclick="setLang('en')">EN</button>
-      </div>
-    </li>
-    <li><a href="index.html#telecharger" class="nav-cta" data-fr="Télécharger" data-en="Download">Télécharger</a></li>
-  </ul>
-  <div class="hamburger" onclick="toggleMenu()"><span></span><span></span><span></span></div>
-</nav>
-
-<div class="mobile-nav" id="mobileNav">
-  <a href="index.html" onclick="toggleMenu()" data-fr="Accueil" data-en="Home">Accueil</a>
-  <a href="support.html" onclick="toggleMenu()" data-fr="Support" data-en="Support">Support</a>
-  <a href="index.html#telecharger" onclick="toggleMenu()" data-fr="Télécharger" data-en="Download">Télécharger</a>
-</div>
+<div id="navbar-placeholder"></div>
+<div id="mobilenav-placeholder"></div>
 
 <div class="page-hero">
   <div class="container">
-    <div class="section-tag" style="margin: 0 auto 20px;">📖 <span data-fr="Guide complet" data-en="Complete guide">Guide complet</span></div>
+    <div class="section-tag" style="margin: 0 auto 20px;"><span data-fr="Guide complet" data-en="Complete guide">Guide complet</span></div>
     <h1 class="section-title" data-fr="Comment utiliser <span>FIDEE ?</span>" data-en="How to use <span>FIDEE?</span>">Comment utiliser <span>FIDEE ?</span></h1>
     <p class="section-subtitle" data-fr="Tout ce que vous devez savoir pour utiliser FIDEE, que vous soyez client ou commerçant." data-en="Everything you need to know to use FIDEE, whether you're a customer or a merchant.">
       Tout ce que vous devez savoir pour utiliser FIDEE, que vous soyez client ou commerçant.
@@ -196,8 +173,8 @@
 
     <!-- TABS -->
     <div class="guide-tabs">
-      <button class="guide-tab active" onclick="switchTab('client')" data-fr="🛍️ Client" data-en="🛍️ Customer">🛍️ Client</button>
-      <button class="guide-tab" onclick="switchTab('merchant')" data-fr="🏪 Commerçant" data-en="🏪 Merchant">🏪 Commerçant</button>
+      <button class="guide-tab active" onclick="switchTab('client')" data-fr="Client" data-en="Customer">Client</button>
+      <button class="guide-tab" onclick="switchTab('merchant')" data-fr="Commerçant" data-en="Merchant">Commerçant</button>
     </div>
 
     <!-- CLIENT GUIDE -->
@@ -205,7 +182,7 @@
       <div class="guide-step">
         <div class="step-number-big">1</div>
         <div>
-          <div class="guide-step-title"><span>📲</span> <span data-fr="Téléchargez et créez votre compte" data-en="Download and create your account">Téléchargez et créez votre compte</span></div>
+          <div class="guide-step-title"><span></span> <span data-fr="Téléchargez et créez votre compte" data-en="Download and create your account">Téléchargez et créez votre compte</span></div>
           <p class="guide-step-desc" data-fr="Téléchargez FIDEE gratuitement sur l'App Store ou Google Play. Créez votre compte avec votre adresse email ou connectez-vous avec Google." data-en="Download FIDEE for free on the App Store or Google Play. Create your account with your email address or sign in with Google.">
             Téléchargez FIDEE gratuitement sur l'App Store ou Google Play. Créez votre compte avec votre adresse email ou connectez-vous avec Google.
           </p>
@@ -218,7 +195,7 @@
       <div class="guide-step">
         <div class="step-number-big">2</div>
         <div>
-          <div class="guide-step-title"><span>🗺️</span> <span data-fr="Explorez les commerces près de vous" data-en="Explore stores near you">Explorez les commerces près de vous</span></div>
+          <div class="guide-step-title"><span></span> <span data-fr="Explorez les commerces près de vous" data-en="Explore stores near you">Explorez les commerces près de vous</span></div>
           <p class="guide-step-desc" data-fr="Depuis l'onglet Accueil, découvrez tous les commerces partenaires FIDEE autour de vous. Vous pouvez filtrer par catégorie ou rechercher par nom." data-en="From the Home tab, discover all FIDEE partner stores around you. You can filter by category or search by name.">
             Depuis l'onglet Accueil, découvrez tous les commerces partenaires FIDEE autour de vous. Vous pouvez filtrer par catégorie ou rechercher par nom.
           </p>
@@ -232,7 +209,7 @@
       <div class="guide-step">
         <div class="step-number-big">3</div>
         <div>
-          <div class="guide-step-title"><span>🔲</span> <span data-fr="Présentez votre QR code" data-en="Show your QR code">Présentez votre QR code</span></div>
+          <div class="guide-step-title"><span></span> <span data-fr="Présentez votre QR code" data-en="Show your QR code">Présentez votre QR code</span></div>
           <p class="guide-step-desc" data-fr="Dans l'onglet Profil, appuyez sur 'Mon QR de fidélité' pour afficher votre QR code personnel. Présentez-le au commerçant lors de votre passage en caisse pour accumuler des points." data-en="In the Profile tab, tap 'My loyalty QR' to display your personal QR code. Show it to the merchant at checkout to accumulate points.">
             Dans l'onglet Profil, appuyez sur 'Mon QR de fidélité' pour afficher votre QR code personnel. Présentez-le au commerçant lors de votre passage en caisse pour accumuler des points.
           </p>
@@ -246,12 +223,12 @@
       <div class="guide-step">
         <div class="step-number-big">4</div>
         <div>
-          <div class="guide-step-title"><span>🎁</span> <span data-fr="Échangez vos points" data-en="Redeem your points">Échangez vos points</span></div>
+          <div class="guide-step-title"><span></span> <span data-fr="Échangez vos points" data-en="Redeem your points">Échangez vos points</span></div>
           <p class="guide-step-desc" data-fr="Une fois que vous avez atteint un palier de récompense, appuyez dessus depuis votre cagnotte ou la fiche du commerce. Un QR code de récompense s'affiche — présentez-le au commerçant pour valider votre récompense." data-en="Once you've reached a reward tier, tap on it from your balance or the store page. A reward QR code is displayed — show it to the merchant to validate your reward.">
             Une fois que vous avez atteint un palier de récompense, appuyez dessus depuis votre cagnotte ou la fiche du commerce. Un QR code de récompense s'affiche — présentez-le au commerçant pour valider votre récompense.
           </p>
           <ul class="guide-step-tips">
-            <li data-fr="⚠️ Les points sont débités uniquement lorsque le commerçant valide votre QR code." data-en="⚠️ Points are only deducted when the merchant validates your QR code.">⚠️ Les points sont débités uniquement lorsque le commerçant valide votre QR code.</li>
+            <li data-fr="Les points sont débités uniquement lorsque le commerçant valide votre QR code." data-en="Points are only deducted when the merchant validates your QR code.">Les points sont débités uniquement lorsque le commerçant valide votre QR code.</li>
             <li data-fr="Le QR code de récompense est à usage unique." data-en="The reward QR code is for single use.">Le QR code de récompense est à usage unique.</li>
           </ul>
         </div>
@@ -263,7 +240,7 @@
       <div class="guide-step">
         <div class="step-number-big">1</div>
         <div>
-          <div class="guide-step-title"><span>🏪</span> <span data-fr="Créez votre commerce" data-en="Create your store">Créez votre commerce</span></div>
+          <div class="guide-step-title"><span></span> <span data-fr="Créez votre commerce" data-en="Create your store">Créez votre commerce</span></div>
           <p class="guide-step-desc" data-fr="Après vous être connecté, allez dans l'onglet Gérant. Appuyez sur 'Mon commerce' pour créer votre fiche : nom, description, adresse, photos, logo et catégories." data-en="After logging in, go to the Manager tab. Tap 'My business' to create your listing: name, description, address, photos, logo and categories.">
             Après vous être connecté, allez dans l'onglet Gérant. Appuyez sur 'Mon commerce' pour créer votre fiche : nom, description, adresse, photos, logo et catégories.
           </p>
@@ -277,7 +254,7 @@
       <div class="guide-step">
         <div class="step-number-big">2</div>
         <div>
-          <div class="guide-step-title"><span>🎯</span> <span data-fr="Configurez vos paliers de récompenses" data-en="Configure your reward tiers">Configurez vos paliers de récompenses</span></div>
+          <div class="guide-step-title"><span></span> <span data-fr="Configurez vos paliers de récompenses" data-en="Configure your reward tiers">Configurez vos paliers de récompenses</span></div>
           <p class="guide-step-desc" data-fr="Dans l'onglet Gérant, allez dans 'Paliers de récompenses'. Créez les récompenses que vous souhaitez offrir et définissez le nombre de points nécessaires pour chacune. Vous pouvez aussi définir une limite maximum de points." data-en="In the Manager tab, go to 'Reward tiers'. Create the rewards you want to offer and set the number of points required for each. You can also set a maximum points limit.">
             Dans l'onglet Gérant, allez dans 'Paliers de récompenses'. Créez les récompenses que vous souhaitez offrir et définissez le nombre de points nécessaires pour chacune. Vous pouvez aussi définir une limite maximum de points.
           </p>
@@ -291,7 +268,7 @@
       <div class="guide-step">
         <div class="step-number-big">3</div>
         <div>
-          <div class="guide-step-title"><span>💳</span> <span data-fr="Créditez des points à vos clients" data-en="Credit points to your customers">Créditez des points à vos clients</span></div>
+          <div class="guide-step-title"><span></span> <span data-fr="Créditez des points à vos clients" data-en="Credit points to your customers">Créditez des points à vos clients</span></div>
           <p class="guide-step-desc" data-fr="Depuis l'onglet Gérant, appuyez sur 'Créditer des points'. Scannez le QR code du client ou recherchez-le par email. Entrez le nombre de points à créditer et confirmez." data-en="From the Manager tab, tap 'Credit points'. Scan the customer's QR code or search by email. Enter the number of points to credit and confirm.">
             Depuis l'onglet Gérant, appuyez sur 'Créditer des points'. Scannez le QR code du client ou recherchez-le par email. Entrez le nombre de points à créditer et confirmez.
           </p>
@@ -305,12 +282,12 @@
       <div class="guide-step">
         <div class="step-number-big">4</div>
         <div>
-          <div class="guide-step-title"><span>✅</span> <span data-fr="Validez les récompenses" data-en="Validate rewards">Validez les récompenses</span></div>
+          <div class="guide-step-title"><span></span> <span data-fr="Validez les récompenses" data-en="Validate rewards">Validez les récompenses</span></div>
           <p class="guide-step-desc" data-fr="Lorsqu'un client souhaite utiliser ses points, appuyez sur 'Valider un QR code'. Scannez le QR code de récompense affiché sur son téléphone, vérifiez les informations et validez. Les points sont alors débités de son solde." data-en="When a customer wants to use their points, tap 'Validate a QR code'. Scan the reward QR code displayed on their phone, verify the information and validate. Points are then deducted from their balance.">
             Lorsqu'un client souhaite utiliser ses points, appuyez sur 'Valider un QR code'. Scannez le QR code de récompense affiché sur son téléphone, vérifiez les informations et validez. Les points sont alors débités de son solde.
           </p>
           <ul class="guide-step-tips">
-            <li data-fr="⚠️ Les points sont débités uniquement à ce moment-là, pas quand le client génère son QR." data-en="⚠️ Points are only deducted at this moment, not when the customer generates their QR.">⚠️ Les points sont débités uniquement à ce moment-là, pas quand le client génère son QR.</li>
+            <li data-fr="Les points sont débités uniquement à ce moment-là, pas quand le client génère son QR." data-en="Points are only deducted at this moment, not when the customer generates their QR.">Les points sont débités uniquement à ce moment-là, pas quand le client génère son QR.</li>
             <li data-fr="Vous pouvez aussi saisir le code manuellement si la caméra ne fonctionne pas." data-en="You can also enter the code manually if the camera doesn't work.">Vous pouvez aussi saisir le code manuellement si la caméra ne fonctionne pas.</li>
           </ul>
         </div>
@@ -319,7 +296,7 @@
       <div class="guide-step">
         <div class="step-number-big">5</div>
         <div>
-          <div class="guide-step-title"><span>👥</span> <span data-fr="Gérez votre équipe" data-en="Manage your team">Gérez votre équipe</span></div>
+          <div class="guide-step-title"><span></span> <span data-fr="Gérez votre équipe" data-en="Manage your team">Gérez votre équipe</span></div>
           <p class="guide-step-desc" data-fr="Ajoutez des collaborateurs depuis 'Gérer le staff'. Deux rôles disponibles : Collaborateur (crédite des points et valide les QR) et Manager (accès étendu aux statistiques et à l'historique)." data-en="Add collaborators from 'Manage staff'. Two roles available: Collaborator (credits points and validates QR codes) and Manager (extended access to statistics and history).">
             Ajoutez des collaborateurs depuis 'Gérer le staff'. Deux rôles disponibles : Collaborateur (crédite des points et valide les QR) et Manager (accès étendu aux statistiques et à l'historique).
           </p>
@@ -334,7 +311,7 @@
     <!-- FAQ -->
     <div style="margin-top: 80px;">
       <div class="text-center" style="margin-bottom: 40px;">
-        <div class="section-tag" style="margin: 0 auto 20px;">❓ <span data-fr="Questions fréquentes" data-en="Frequently asked questions">Questions fréquentes</span></div>
+        <div class="section-tag" style="margin: 0 auto 20px;"><span data-fr="Questions fréquentes" data-en="Frequently asked questions">Questions fréquentes</span></div>
         <h2 class="section-title" data-fr="<span>FAQ</span>" data-en="<span>FAQ</span>"><span>FAQ</span></h2>
       </div>
 
@@ -399,93 +376,32 @@
   </div>
 </section>
 
-<footer>
-  <div class="container">
-    <div class="footer-grid">
-      <div class="footer-brand">
-        <a href="index.html" class="nav-logo" style="margin-bottom:16px; display:inline-flex;">
-          <img src="fidee_logo_blanc.svg" alt="FIDEE" class="nav-logo-image">
-        </a>
-        <p data-fr="La fidélité réinventée." data-en="Local loyalty reinvented.">La fidélité réinventée.</p>
-      </div>
-      <div>
-        <div class="footer-title" data-fr="Application" data-en="App">Application</div>
-        <ul class="footer-links">
-          <li><a href="comment-ca-marche.html" data-fr="Comment ça marche" data-en="How it works">Comment ça marche</a></li>
-          <li><a href="index.html#telecharger" data-fr="Télécharger" data-en="Download">Télécharger</a></li>
-        </ul>
-      </div>
-      <div>
-        <div class="footer-title" data-fr="Support" data-en="Support">Support</div>
-        <ul class="footer-links">
-          <li><a href="support.html" data-fr="Centre d'aide" data-en="Help center">Centre d'aide</a></li>
-          <li><a href="support.html#contact" data-fr="Contact" data-en="Contact">Contact</a></li>
-        </ul>
-      </div>
-      <div>
-        <div class="footer-title" data-fr="Légal" data-en="Legal">Légal</div>
-        <ul class="footer-links">
-          <li><a href="cgu.html" data-fr="CGU" data-en="Terms">CGU</a></li>
-          <li><a href="confidentialite.html" data-fr="Confidentialité" data-en="Privacy">Confidentialité</a></li>
-        </ul>
-      </div>
-    </div>
-    <div class="footer-bottom">
-      <span>© 2026 FIDEE.</span>
-      <span data-fr="Fait avec ❤️" data-en="Made with ❤️">Fait avec ❤️</span>
-    </div>
-  </div>
-</footer>
+<div id="footer-placeholder"></div>
 
+<script src="components.js"></script>
 <script>
-  let currentLang = localStorage.getItem('fidee-lang') || 'fr';
-
-  function setLang(lang) {
-    currentLang = lang;
-    localStorage.setItem('fidee-lang', lang);
-    document.querySelectorAll('.lang-btn').forEach(btn => {
-      btn.classList.toggle('active', btn.textContent === lang.toUpperCase());
-    });
-    document.querySelectorAll('[data-fr]').forEach(el => {
-      const text = el.getAttribute('data-' + lang);
-      if (text) {
-        if (text.includes('<')) el.innerHTML = text;
-        else el.textContent = text;
-      }
-    });
-    // Update FAQ answers
-    document.querySelectorAll('.faq-answer').forEach(el => {
-      const text = el.getAttribute('data-' + lang);
+  window._onLangChange = function (lang) {
+    document.querySelectorAll('.faq-answer').forEach(function (el) {
+      var text = el.getAttribute('data-' + lang);
       if (text) el.textContent = text;
     });
-    document.documentElement.lang = lang;
-  }
-
-  setLang(currentLang);
+  };
+  initComponents();
 
   function switchTab(tab) {
-    document.querySelectorAll('.guide-tab').forEach((t, i) => {
+    document.querySelectorAll('.guide-tab').forEach(function (t, i) {
       t.classList.toggle('active', (i === 0 && tab === 'client') || (i === 1 && tab === 'merchant'));
     });
-    document.querySelectorAll('.guide-content').forEach(c => c.classList.remove('active'));
+    document.querySelectorAll('.guide-content').forEach(function (c) { c.classList.remove('active'); });
     document.getElementById('tab-' + tab).classList.add('active');
   }
 
   function toggleFaq(el) {
-    const answer = el.nextElementSibling;
-    const arrow = el.querySelector('.faq-arrow');
+    var answer = el.nextElementSibling;
+    var arrow = el.querySelector('.faq-arrow');
     answer.classList.toggle('open');
     arrow.classList.toggle('open');
   }
-
-  function toggleMenu() {
-    document.getElementById('mobileNav').classList.toggle('open');
-  }
-
-  window.addEventListener('scroll', () => {
-    document.getElementById('navbar').style.background =
-      window.scrollY > 50 ? 'rgba(15,15,15,0.95)' : 'rgba(15,15,15,0.85)';
-  });
 </script>
 </body>
 </html>

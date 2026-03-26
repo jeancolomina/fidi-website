@@ -190,33 +190,12 @@
 </head>
 <body>
 
-<nav id="navbar">
-  <a href="index.html" class="nav-logo">
-    <img src="fidee_logo_blanc.svg" alt="FIDEE" class="nav-logo-image">
-  </a>
-  <ul class="nav-links">
-    <li><a href="comment-ca-marche.html" data-fr="Comment ça marche" data-en="How it works">Comment ça marche</a></li>
-    <li><a href="support.html" data-fr="Support" data-en="Support">Support</a></li>
-    <li>
-      <div class="lang-switcher">
-        <button class="lang-btn active" onclick="setLang('fr')">FR</button>
-        <button class="lang-btn" onclick="setLang('en')">EN</button>
-      </div>
-    </li>
-    <li><a href="index.html#telecharger" class="nav-cta" data-fr="Télécharger" data-en="Download">Télécharger</a></li>
-  </ul>
-  <div class="hamburger" onclick="toggleMenu()"><span></span><span></span><span></span></div>
-</nav>
-
-<div class="mobile-nav" id="mobileNav">
-  <a href="index.html" onclick="toggleMenu()">Accueil</a>
-  <a href="comment-ca-marche.html" onclick="toggleMenu()">Comment ça marche</a>
-  <a href="index.html#telecharger" onclick="toggleMenu()">Télécharger</a>
-</div>
+<div id="navbar-placeholder"></div>
+<div id="mobilenav-placeholder"></div>
 
 <div class="page-hero">
   <div class="container">
-    <div class="section-tag" style="margin: 0 auto 20px;">💬 <span data-fr="Aide & Support" data-en="Help & Support">Aide & Support</span></div>
+    <div class="section-tag" style="margin: 0 auto 20px;"><span data-fr="Aide & Support" data-en="Help & Support">Aide & Support</span></div>
     <h1 class="section-title" data-fr="Comment pouvons-nous <span>vous aider ?</span>" data-en="How can we <span>help you?</span>">Comment pouvons-nous <span>vous aider ?</span></h1>
     <p class="section-subtitle" data-fr="Trouvez des réponses à vos questions ou contactez notre équipe directement." data-en="Find answers to your questions or contact our team directly.">
       Trouvez des réponses à vos questions ou contactez notre équipe directement.
@@ -230,17 +209,17 @@
     <!-- QUICK LINKS -->
     <div class="support-grid">
       <a href="comment-ca-marche.html" class="support-card">
-        <span class="support-card-icon">📖</span>
+        <span class="support-card-icon"></span>
         <h3 data-fr="Guide d'utilisation" data-en="User Guide">Guide d'utilisation</h3>
         <p data-fr="Apprenez à utiliser FIDEE étape par étape, côté client et commerçant." data-en="Learn how to use FIDEE step by step, as a customer or merchant.">Apprenez à utiliser FIDEE étape par étape, côté client et commerçant.</p>
       </a>
       <a href="#faq" class="support-card">
-        <span class="support-card-icon">❓</span>
+        <span class="support-card-icon"></span>
         <h3 data-fr="Questions fréquentes" data-en="FAQ">Questions fréquentes</h3>
         <p data-fr="Retrouvez les réponses aux questions les plus posées par nos utilisateurs." data-en="Find answers to the most common questions from our users.">Retrouvez les réponses aux questions les plus posées par nos utilisateurs.</p>
       </a>
       <a href="#contact" class="support-card">
-        <span class="support-card-icon">✉️</span>
+        <span class="support-card-icon"></span>
         <h3 data-fr="Contacter le support" data-en="Contact Support">Contacter le support</h3>
         <p data-fr="Vous n'avez pas trouvé votre réponse ? Notre équipe vous répond sous 24h." data-en="Didn't find your answer? Our team replies within 24 hours.">Vous n'avez pas trouvé votre réponse ? Notre équipe vous répond sous 24h.</p>
       </a>
@@ -249,14 +228,14 @@
     <!-- FAQ TOPICS -->
     <div id="faq">
       <div class="text-center">
-        <div class="section-tag" style="margin: 0 auto 20px;">❓ FAQ</div>
+        <div class="section-tag" style="margin: 0 auto 20px;">FAQ</div>
         <h2 class="section-title" data-fr="Questions <span>fréquentes</span>" data-en="Frequently asked <span>questions</span>">Questions <span>fréquentes</span></h2>
       </div>
 
       <div class="topics-grid">
         <div class="topic-card" onclick="toggleTopic(this)">
           <div class="topic-header">
-            <div class="topic-title">📱 <span data-fr="Je n'arrive pas à me connecter" data-en="I can't log in">Je n'arrive pas à me connecter</span></div>
+            <div class="topic-title"><span data-fr="Je n'arrive pas à me connecter" data-en="I can't log in">Je n'arrive pas à me connecter</span></div>
             <span class="topic-arrow">▼</span>
           </div>
           <div class="topic-body" data-fr="Vérifiez que vous utilisez la bonne adresse email. Si vous avez oublié votre mot de passe, utilisez le bouton 'Mot de passe oublié' sur l'écran de connexion. Un email de réinitialisation vous sera envoyé." data-en="Check that you're using the correct email address. If you've forgotten your password, use the 'Forgot password' button on the login screen. A reset email will be sent to you.">
@@ -266,7 +245,7 @@
 
         <div class="topic-card" onclick="toggleTopic(this)">
           <div class="topic-header">
-            <div class="topic-title">⭐ <span data-fr="Mes points n'ont pas été crédités" data-en="My points weren't credited">Mes points n'ont pas été crédités</span></div>
+            <div class="topic-title"><span data-fr="Mes points n'ont pas été crédités" data-en="My points weren't credited">Mes points n'ont pas été crédités</span></div>
             <span class="topic-arrow">▼</span>
           </div>
           <div class="topic-body" data-fr="Les points sont crédités par le commerçant lors de votre passage en caisse. Si vos points ne s'affichent pas, vérifiez que vous avez bien présenté votre QR code au commerçant. Si le problème persiste, contactez directement le commerce." data-en="Points are credited by the merchant at checkout. If your points don't appear, verify that you showed your QR code to the merchant. If the problem persists, contact the store directly.">
@@ -276,7 +255,7 @@
 
         <div class="topic-card" onclick="toggleTopic(this)">
           <div class="topic-header">
-            <div class="topic-title">🎁 <span data-fr="Ma récompense n'a pas fonctionné" data-en="My reward didn't work">Ma récompense n'a pas fonctionné</span></div>
+            <div class="topic-title"><span data-fr="Ma récompense n'a pas fonctionné" data-en="My reward didn't work">Ma récompense n'a pas fonctionné</span></div>
             <span class="topic-arrow">▼</span>
           </div>
           <div class="topic-body" data-fr="Pour utiliser une récompense, appuyez sur le palier débloqué dans votre cagnotte, un QR code s'affiche. Présentez-le au commerçant pour qu'il le scanne et valide la récompense. Les points sont débités uniquement à ce moment-là." data-en="To use a reward, tap the unlocked tier in your balance, a QR code is displayed. Show it to the merchant to scan and validate the reward. Points are only deducted at this moment.">
@@ -286,7 +265,7 @@
 
         <div class="topic-card" onclick="toggleTopic(this)">
           <div class="topic-header">
-            <div class="topic-title">🏪 <span data-fr="Comment ajouter mon commerce ?" data-en="How to add my store?">Comment ajouter mon commerce ?</span></div>
+            <div class="topic-title"><span data-fr="Comment ajouter mon commerce ?" data-en="How to add my store?">Comment ajouter mon commerce ?</span></div>
             <span class="topic-arrow">▼</span>
           </div>
           <div class="topic-body" data-fr="Créez un compte FIDEE, puis allez dans l'onglet Gérant. L'onglet Gérant apparaît une fois que vous avez créé votre premier commerce depuis Paramètres → Espace Gérant. Remplissez les informations de votre commerce et c'est terminé !" data-en="Create a FIDEE account, then go to the Manager tab. The Manager tab appears once you've created your first store from Settings → Manager Space. Fill in your store information and you're done!">
@@ -296,7 +275,7 @@
 
         <div class="topic-card" onclick="toggleTopic(this)">
           <div class="topic-header">
-            <div class="topic-title">👥 <span data-fr="Comment ajouter un employé ?" data-en="How to add an employee?">Comment ajouter un employé ?</span></div>
+            <div class="topic-title"><span data-fr="Comment ajouter un employé ?" data-en="How to add an employee?">Comment ajouter un employé ?</span></div>
             <span class="topic-arrow">▼</span>
           </div>
           <div class="topic-body" data-fr="Dans l'onglet Gérant, allez dans 'Gérer le staff'. L'employé doit d'abord avoir un compte FIDEE. Entrez son adresse email et choisissez son rôle (Collaborateur ou Manager). Il aura immédiatement accès à votre espace gérant." data-en="In the Manager tab, go to 'Manage staff'. The employee must first have a FIDEE account. Enter their email address and choose their role (Collaborator or Manager). They'll immediately have access to your manager space.">
@@ -306,7 +285,7 @@
 
         <div class="topic-card" onclick="toggleTopic(this)">
           <div class="topic-header">
-            <div class="topic-title">🗑️ <span data-fr="Comment supprimer mon compte ?" data-en="How to delete my account?">Comment supprimer mon compte ?</span></div>
+            <div class="topic-title"><span data-fr="Comment supprimer mon compte ?" data-en="How to delete my account?">Comment supprimer mon compte ?</span></div>
             <span class="topic-arrow">▼</span>
           </div>
           <div class="topic-body" data-fr="Allez dans Paramètres → Profil. Vous trouverez l'option de suppression de compte en bas de la page. Attention, cette action est irréversible et entraîne la perte de tous vos points." data-en="Go to Settings → Profile. You'll find the account deletion option at the bottom of the page. Warning, this action is irreversible and results in the loss of all your points.">
@@ -316,7 +295,7 @@
 
         <div class="topic-card" onclick="toggleTopic(this)">
           <div class="topic-header">
-            <div class="topic-title">📷 <span data-fr="La caméra ne fonctionne pas" data-en="Camera doesn't work">La caméra ne fonctionne pas</span></div>
+            <div class="topic-title"><span data-fr="La caméra ne fonctionne pas" data-en="Camera doesn't work">La caméra ne fonctionne pas</span></div>
             <span class="topic-arrow">▼</span>
           </div>
           <div class="topic-body" data-fr="Vérifiez que vous avez autorisé FIDEE à accéder à la caméra dans les paramètres de votre téléphone (Réglages → FIDEE → Caméra). Si le problème persiste, vous pouvez toujours saisir le code manuellement." data-en="Check that you've allowed FIDEE to access the camera in your phone settings (Settings → FIDEE → Camera). If the problem persists, you can always enter the code manually.">
@@ -326,7 +305,7 @@
 
         <div class="topic-card" onclick="toggleTopic(this)">
           <div class="topic-header">
-            <div class="topic-title">🌍 <span data-fr="Changer la langue de l'app" data-en="Change the app language">Changer la langue de l'app</span></div>
+            <div class="topic-title"><span data-fr="Changer la langue de l'app" data-en="Change the app language">Changer la langue de l'app</span></div>
             <span class="topic-arrow">▼</span>
           </div>
           <div class="topic-body" data-fr="Allez dans Paramètres → Langue. Vous pouvez choisir entre le français et l'anglais. Vous pouvez aussi changer la langue directement depuis l'écran de connexion." data-en="Go to Settings → Language. You can choose between French and English. You can also change the language directly from the login screen.">
@@ -339,9 +318,9 @@
     <!-- CONTACT FORM -->
     <div id="contact" style="margin-top: 80px;">
       <div class="text-center" style="margin-bottom: 40px;">
-        <div class="section-tag" style="margin: 0 auto 20px;">✉️ <span data-fr="Contact" data-en="Contact">Contact</span></div>
+        <div class="section-tag" style="margin: 0 auto 20px;"><span data-fr="Contact" data-en="Contact">Contact</span></div>
         <h2 class="section-title" data-fr="Nous <span>contacter</span>" data-en="Contact <span>us</span>">Nous <span>contacter</span></h2>
-        <p class="section-subtitle" data-fr="Notre équipe vous répond dans les 24 heures." data-en="Our team replies within 24 hours.">Notre équipe vous répond dans les 24 heures.</p>
+        <p class="section-subtitle" data-fr="Message envoyé !" data-en="Message sent!">Message envoyé !</p>
       </div>
 
       <div class="contact-form">
@@ -391,7 +370,7 @@
             </button>
           </div>
           <div class="success-msg" id="successMsg">
-            ✅ <span data-fr="Message envoyé ! Nous vous répondrons dans les 24 heures." data-en="Message sent! We'll reply within 24 hours.">Message envoyé ! Nous vous répondrons dans les 24 heures.</span>
+            <span data-fr="Message envoyé ! Nous vous répondrons dans les 24 heures." data-en="Message sent! We'll reply within 24 hours.">Message envoyé ! Nous vous répondrons dans les 24 heures.</span>
           </div>
         </form>
       </div>
@@ -400,73 +379,21 @@
   </div>
 </section>
 
-<footer>
-  <div class="container">
-    <div class="footer-grid">
-      <div class="footer-brand">
-        <a href="index.html" class="nav-logo" style="margin-bottom:16px; display:inline-flex;">
-          <img src="fidee_logo_blanc.svg" alt="FIDEE" class="nav-logo-image">
-        </a>
-        <p data-fr="La fidélité réinventée." data-en="Local loyalty reinvented.">La fidélité réinventée.</p>
-      </div>
-      <div>
-        <div class="footer-title">Application</div>
-        <ul class="footer-links">
-          <li><a href="comment-ca-marche.html" data-fr="Comment ça marche" data-en="How it works">Comment ça marche</a></li>
-          <li><a href="index.html#telecharger" data-fr="Télécharger" data-en="Download">Télécharger</a></li>
-        </ul>
-      </div>
-      <div>
-        <div class="footer-title">Support</div>
-        <ul class="footer-links">
-          <li><a href="support.html" data-fr="Centre d'aide" data-en="Help center">Centre d'aide</a></li>
-          <li><a href="support.html#contact" data-fr="Contact" data-en="Contact">Contact</a></li>
-        </ul>
-      </div>
-      <div>
-        <div class="footer-title" data-fr="Légal" data-en="Legal">Légal</div>
-        <ul class="footer-links">
-          <li><a href="cgu.html" data-fr="CGU" data-en="Terms">CGU</a></li>
-          <li><a href="confidentialite.html" data-fr="Confidentialité" data-en="Privacy">Confidentialité</a></li>
-        </ul>
-      </div>
-    </div>
-    <div class="footer-bottom">
-      <span>© 2026 FIDEE.</span>
-      <span data-fr="Fait avec ❤️" data-en="Made with ❤️">Fait avec ❤️</span>
-    </div>
-  </div>
-</footer>
+<div id="footer-placeholder"></div>
 
+<script src="components.js"></script>
 <script>
-  let currentLang = localStorage.getItem('fidee-lang') || 'fr';
-
-  function setLang(lang) {
-    currentLang = lang;
-    localStorage.setItem('fidee-lang', lang);
-    document.querySelectorAll('.lang-btn').forEach(btn => {
-      btn.classList.toggle('active', btn.textContent === lang.toUpperCase());
-    });
-    document.querySelectorAll('[data-fr]').forEach(el => {
-      const text = el.getAttribute('data-' + lang);
-      if (text) {
-        if (el.tagName === 'INPUT' || el.tagName === 'TEXTAREA') el.placeholder = text;
-        else if (text.includes('<')) el.innerHTML = text;
-        else el.textContent = text;
-      }
-    });
-    document.querySelectorAll('.topic-body').forEach(el => {
-      const text = el.getAttribute('data-' + lang);
+  window._onLangChange = function (lang) {
+    document.querySelectorAll('.topic-body').forEach(function (el) {
+      var text = el.getAttribute('data-' + lang);
       if (text) el.textContent = text;
     });
-    document.documentElement.lang = lang;
-  }
-
-  setLang(currentLang);
+  };
+  initComponents();
 
   function toggleTopic(card) {
-    const body = card.querySelector('.topic-body');
-    const arrow = card.querySelector('.topic-arrow');
+    var body = card.querySelector('.topic-body');
+    var arrow = card.querySelector('.topic-arrow');
     body.classList.toggle('open');
     arrow.classList.toggle('open');
     card.classList.toggle('open');
@@ -474,15 +401,15 @@
 
   async function submitForm(e) {
     e.preventDefault();
-    const form = document.getElementById('contactForm');
-    const btn = document.getElementById('submitBtn');
-    const btnLabel = btn.querySelector('span') || btn;
+    var form = document.getElementById('contactForm');
+    var btn = document.getElementById('submitBtn');
+    var btnLabel = btn.querySelector('span') || btn;
     btnLabel.textContent = currentLang === 'fr' ? '⏳ Envoi...' : '⏳ Sending...';
     btn.disabled = true;
 
     try {
-      const formData = new FormData(form);
-      const response = await fetch(form.action, {
+      var formData = new FormData(form);
+      var response = await fetch(form.action, {
         method: 'POST',
         body: formData,
         headers: { 'Accept': 'application/json' }
@@ -503,15 +430,6 @@
       btn.disabled = false;
     }
   }
-
-  function toggleMenu() {
-    document.getElementById('mobileNav').classList.toggle('open');
-  }
-
-  window.addEventListener('scroll', () => {
-    document.getElementById('navbar').style.background =
-      window.scrollY > 50 ? 'rgba(15,15,15,0.95)' : 'rgba(15,15,15,0.85)';
-  });
 </script>
 </body>
 </html>

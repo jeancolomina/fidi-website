@@ -8,32 +8,12 @@
 </head>
 <body>
 
-<nav id="navbar">
-  <a href="index.html" class="nav-logo">
-    <img src="fidee_logo_blanc.svg" alt="FIDEE" class="nav-logo-image">
-  </a>
-  <ul class="nav-links">
-    <li><a href="comment-ca-marche.html" data-fr="Comment ça marche" data-en="How it works">Comment ça marche</a></li>
-    <li><a href="support.html" data-fr="Support" data-en="Support">Support</a></li>
-    <li>
-      <div class="lang-switcher">
-        <button class="lang-btn active" onclick="setLang('fr')">FR</button>
-        <button class="lang-btn" onclick="setLang('en')">EN</button>
-      </div>
-    </li>
-  </ul>
-  <div class="hamburger" onclick="toggleMenu()"><span></span><span></span><span></span></div>
-</nav>
-
-<div class="mobile-nav" id="mobileNav">
-  <a href="index.html" onclick="toggleMenu()">Accueil</a>
-  <a href="comment-ca-marche.html" onclick="toggleMenu()">Comment ça marche</a>
-  <a href="support.html" onclick="toggleMenu()">Support</a>
-</div>
+<div id="navbar-placeholder"></div>
+<div id="mobilenav-placeholder"></div>
 
 <div class="page-hero">
   <div class="container">
-    <div class="section-tag" style="margin: 0 auto 20px;">📋 <span data-fr="Légal" data-en="Legal">Légal</span></div>
+    <div class="section-tag" style="margin: 0 auto 20px;"><span data-fr="Légal" data-en="Legal">Légal</span></div>
     <h1 class="section-title" data-fr="Conditions Générales <span>d'Utilisation</span>" data-en="Terms of <span>Service</span>">Conditions Générales <span>d'Utilisation</span></h1>
     <p class="section-subtitle" data-fr="Dernière mise à jour : janvier 2026" data-en="Last updated: January 2026">Dernière mise à jour : janvier 2026</p>
   </div>
@@ -195,73 +175,15 @@
   </div>
 </section>
 
-<footer>
-  <div class="container">
-    <div class="footer-grid">
-      <div class="footer-brand">
-        <a href="index.html" class="nav-logo" style="margin-bottom:16px; display:inline-flex;">
-          <img src="fidee_logo_blanc.svg" alt="FIDEE" class="nav-logo-image">
-        </a>
-        <p data-fr="La fidélité réinventée." data-en="Local loyalty reinvented.">La fidélité réinventée.</p>
-      </div>
-      <div>
-        <div class="footer-title">Application</div>
-        <ul class="footer-links">
-          <li><a href="comment-ca-marche.html" data-fr="Comment ça marche" data-en="How it works">Comment ça marche</a></li>
-          <li><a href="index.html#telecharger" data-fr="Télécharger" data-en="Download">Télécharger</a></li>
-        </ul>
-      </div>
-      <div>
-        <div class="footer-title">Support</div>
-        <ul class="footer-links">
-          <li><a href="support.html" data-fr="Centre d'aide" data-en="Help center">Centre d'aide</a></li>
-        </ul>
-      </div>
-      <div>
-        <div class="footer-title" data-fr="Légal" data-en="Legal">Légal</div>
-        <ul class="footer-links">
-          <li><a href="cgu.html" data-fr="CGU" data-en="Terms">CGU</a></li>
-          <li><a href="confidentialite.html" data-fr="Confidentialité" data-en="Privacy">Confidentialité</a></li>
-        </ul>
-      </div>
-    </div>
-    <div class="footer-bottom">
-      <span>© 2026 FIDEE.</span>
-    </div>
-  </div>
-</footer>
+<div id="footer-placeholder"></div>
 
+<script src="components.js"></script>
 <script>
-  let currentLang = localStorage.getItem('fidee-lang') || 'fr';
-
-  function setLang(lang) {
-    currentLang = lang;
-    localStorage.setItem('fidee-lang', lang);
-    document.querySelectorAll('.lang-btn').forEach(btn => {
-      btn.classList.toggle('active', btn.textContent === lang.toUpperCase());
-    });
-    document.querySelectorAll('[data-fr]').forEach(el => {
-      const text = el.getAttribute('data-' + lang);
-      if (text) {
-        if (text.includes('<')) el.innerHTML = text;
-        else el.textContent = text;
-      }
-    });
+  window._onLangChange = function (lang) {
     document.getElementById('cgu-fr').style.display = lang === 'fr' ? 'block' : 'none';
     document.getElementById('cgu-en').style.display = lang === 'en' ? 'block' : 'none';
-    document.documentElement.lang = lang;
-  }
-
-  setLang(currentLang);
-
-  function toggleMenu() {
-    document.getElementById('mobileNav').classList.toggle('open');
-  }
-
-  window.addEventListener('scroll', () => {
-    document.getElementById('navbar').style.background =
-      window.scrollY > 50 ? 'rgba(15,15,15,0.95)' : 'rgba(15,15,15,0.85)';
-  });
+  };
+  initComponents();
 </script>
 </body>
 </html>
