@@ -486,17 +486,13 @@
           <div class="phone-notch"></div>
           <div class="phone-carousel">
             <div class="phone-carousel-track">
-              <img src="screenshots/screen1.PNG" alt="Capture d'écran 1" class="phone-carousel-slide" />
-              <img src="screenshots/screen2.PNG" alt="Capture d'écran 2" class="phone-carousel-slide" />
-              <img src="screenshots/screen3.PNG" alt="Capture d'écran 3" class="phone-carousel-slide" />
-              <img src="screenshots/screen4.PNG" alt="Capture d'écran 4" class="phone-carousel-slide" />
-              <img src="screenshots/screen5.PNG" alt="Capture d'écran 5" class="phone-carousel-slide" />
-              <img src="screenshots/screen6.PNG" alt="Capture d'écran 6" class="phone-carousel-slide" />
+              <img src="screenshots/screen1.PNG" data-src-fr="screenshots/screen1.PNG" data-src-en="screenshots/screen1en.PNG" alt="Capture d'écran 1" class="phone-carousel-slide" />
+              <img src="screenshots/screen2.PNG" data-src-fr="screenshots/screen2.PNG" data-src-en="screenshots/screen2en.PNG" alt="Capture d'écran 2" class="phone-carousel-slide" />
+              <img src="screenshots/screen3.PNG" data-src-fr="screenshots/screen3.PNG" data-src-en="screenshots/screen3en.PNG" alt="Capture d'écran 3" class="phone-carousel-slide" />
+              <img src="screenshots/screen4.PNG" data-src-fr="screenshots/screen4.PNG" data-src-en="screenshots/screen4en.PNG" alt="Capture d'écran 4" class="phone-carousel-slide" />
             </div>
             <div class="phone-carousel-dots">
               <span class="phone-carousel-dot active"></span>
-              <span class="phone-carousel-dot"></span>
-              <span class="phone-carousel-dot"></span>
               <span class="phone-carousel-dot"></span>
               <span class="phone-carousel-dot"></span>
               <span class="phone-carousel-dot"></span>
@@ -689,6 +685,13 @@
     var current = 0;
     var total = slides.length;
 
+    function updateSlidesSrc(lang) {
+      slides.forEach(function(s) {
+        var src = s.getAttribute('data-src-' + lang);
+        if (src) s.src = src;
+      });
+    }
+
     function goTo(index) {
       current = (index + total) % total;
       track.style.transform = 'translateX(-' + (current * 100) + '%)';
@@ -702,6 +705,10 @@
     });
 
     setInterval(function() { goTo(current + 1); }, 3500);
+
+    // Switch screenshots on language change
+    updateSlidesSrc(window.currentLang);
+    window._onLangChange = function(lang) { updateSlidesSrc(lang); };
   })();
 </script>
 </body>
