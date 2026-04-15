@@ -5,30 +5,29 @@
   --primary-dark: #E09600;
   --primary-light: #FFF3D6;
   --dark: #0F0F0F;
-  --dark-2: #1A1A1A;
-  --dark-3: #242424;
-  --card: #1E1E1E;
-  --text: #F5F5F5;
-  --text-secondary: #A0A0A0;
-  --text-muted: #666;
-  --border: rgba(255,255,255,0.08);
+  --dark-2: #F3F4F6;
+  --dark-3: #E9EAED;
+  --card: #FFFFFF;
+  --text: #1A1A1A;
+  --text-secondary: #5A5A5A;
+  --text-muted: #9A9A9A;
+  --border: rgba(0,0,0,0.09);
   --radius: 16px;
   --radius-sm: 10px;
   --radius-xl: 24px;
-  --shadow: 0 20px 60px rgba(0,0,0,0.4);
-  --shadow-orange: 0 8px 32px rgba(255,168,0,0.25);
+  --shadow: 0 20px 60px rgba(0,0,0,0.1);
+  --shadow-orange: 0 8px 32px rgba(255,168,0,0.2);
 }
 
 * { margin: 0; padding: 0; box-sizing: border-box; }
 
-html { scroll-behavior: smooth; }
+html { scroll-behavior: smooth; overflow-x: hidden; }
 
 body {
   font-family: 'Montserrat', sans-serif;
-  background: var(--dark);
+  background: #FFFFFF;
   color: var(--text);
   line-height: 1.6;
-  overflow-x: hidden;
 }
 
 /* NAV */
@@ -40,7 +39,7 @@ nav {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  background: rgba(15,15,15,0.85);
+  background: rgba(255,255,255,0.88);
   backdrop-filter: blur(20px);
   border-bottom: 1px solid var(--border);
   transition: all 0.3s;
@@ -84,7 +83,7 @@ nav {
 
 .nav-cta {
   background: var(--primary) !important;
-  color: var(--dark) !important;
+  color: #111111 !important;
   font-weight: 700 !important;
   padding: 10px 20px !important;
   border-radius: var(--radius-sm) !important;
@@ -116,7 +115,7 @@ nav {
 
 .lang-btn.active {
   background: var(--primary);
-  color: var(--dark);
+  color: #111111;
 }
 
 .hamburger {
@@ -125,6 +124,10 @@ nav {
   gap: 5px;
   cursor: pointer;
   padding: 8px;
+  background: none;
+  border: none;
+  touch-action: manipulation;
+  -webkit-tap-highlight-color: transparent;
 }
 
 .hamburger span {
@@ -199,7 +202,7 @@ section { padding: 100px 0; }
 
 .btn-primary {
   background: var(--primary);
-  color: var(--dark);
+  color: #111111;
   box-shadow: var(--shadow-orange);
 }
 
@@ -267,6 +270,7 @@ section { padding: 100px 0; }
 footer {
   background: var(--dark-2);
   border-top: 1px solid var(--border);
+  border-bottom: none;
   padding: 60px 0 32px;
 }
 

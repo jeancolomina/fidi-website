@@ -33,7 +33,7 @@
   // ===== SCROLL HANDLER =====
   window.addEventListener('scroll', function () {
     var nb = document.getElementById('navbar');
-    if (nb) nb.style.background = window.scrollY > 50 ? 'rgba(15,15,15,0.95)' : 'rgba(15,15,15,0.85)';
+    if (nb) nb.style.background = window.scrollY > 50 ? 'rgba(255,255,255,0.96)' : 'rgba(255,255,255,0.88)';
   });
 
   // ===== NAVBAR HELPERS =====
@@ -92,9 +92,9 @@
         break;
     }
 
-    var html = '<a href="index.html" class="nav-logo"><img src="fidee_logo_blanc.svg" alt="FIDEE" class="nav-logo-image"></a>'
+    var html = '<a href="index.html" class="nav-logo"><img src="fidee_logo_noir.svg" alt="FIDEE" class="nav-logo-image"></a>'
       + '<ul class="nav-links">' + links + '</ul>'
-      + (hamburger ? '<div class="hamburger" onclick="toggleMenu()"><span></span><span></span><span></span></div>' : '');
+      + (hamburger ? '<button class="hamburger" onclick="toggleMenu()" type="button" aria-label="Menu"><span></span><span></span><span></span></button>' : '');
 
     var el = document.getElementById('navbar-placeholder');
     if (!el) return;
@@ -158,7 +158,7 @@
       + '<div class="footer-grid">'
       + '<div class="footer-brand">'
       + '<a href="index.html" class="nav-logo" style="margin-bottom:16px; display:inline-flex;">'
-      + '<img src="fidee_logo_blanc.svg" alt="FIDEE" class="nav-logo-image"></a>'
+      + '<img src="fidee_logo_noir.svg" alt="FIDEE" class="nav-logo-image"></a>'
       + '<p data-fr="La fidélité réinventée." data-en="Local loyalty reinvented.">La fidélité réinventée.</p>'
       + '</div>'
       + '<div>'
