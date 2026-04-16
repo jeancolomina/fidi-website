@@ -50,13 +50,13 @@ nav {
   align-items: center;
   gap: 0;
   text-decoration: none;
-  height: 42px;
+  height: 56px;
   overflow: visible;
   flex-shrink: 0;
 }
 
 .nav-logo-image {
-  height: 52px;
+  height: 68px;
   width: auto;
   display: block;
   filter: invert(1);
