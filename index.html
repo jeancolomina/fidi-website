@@ -409,6 +409,17 @@
       transform: translateY(-2px);
     }
 
+    .store-btn-disabled {
+      opacity: 0.6;
+      cursor: not-allowed;
+      background: #F5F5F5;
+    }
+
+    .store-btn-disabled:hover {
+      transform: none;
+      border-color: var(--border);
+    }
+
     .store-btn-icon { font-size: 28px; }
 
     .store-btn-sub {
@@ -463,10 +474,21 @@
           FIDEE connecte les clients aux commerces de proximité grâce à un programme de fidélité simple, moderne et efficace. Cumulez des points, obtenez des récompenses.
         </p>
         <div class="hero-btns">
-          <a href="#telecharger" class="btn btn-primary">
-            <span data-fr="Télécharger l'app" data-en="Download the app">Télécharger l'app</span>
+          <a href="#" class="store-btn">
+            <span class="store-btn-icon"></span>
+            <div>
+              <div class="store-btn-sub" data-fr="Télécharger sur" data-en="Download on">Télécharger sur</div>
+              <div class="store-btn-name">App Store</div>
+            </div>
           </a>
-          <a href="comment-ca-marche.html" class="btn btn-outline">
+          <div class="store-btn store-btn-disabled">
+            <span class="store-btn-icon"></span>
+            <div>
+              <div class="store-btn-sub" data-fr="Disponible bientôt" data-en="Coming soon">Disponible bientôt</div>
+              <div class="store-btn-name">Google Play</div>
+            </div>
+          </div>
+          <a href="comment-ca-marche.html" class="btn btn-outline" style="margin-top: 16px;">
             <span data-fr="En savoir plus" data-en="Learn more">En savoir plus</span> →
           </a>
         </div>
