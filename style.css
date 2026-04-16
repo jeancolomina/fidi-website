@@ -52,14 +52,13 @@ nav {
   text-decoration: none;
   height: 42px;
   overflow: visible;
+  flex-shrink: 0;
 }
 
 .nav-logo-image {
   height: 42px;
-  width: 120px;
+  width: auto;
   display: block;
-  object-fit: contain;
-  object-position: left center;
 }
 
 .nav-links {

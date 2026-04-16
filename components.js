@@ -102,6 +102,13 @@
     nav.id = 'navbar';
     nav.innerHTML = html;
     el.replaceWith(nav);
+    var btn = nav.querySelector('.hamburger');
+    if (btn) {
+      btn.addEventListener('touchend', function (e) {
+        e.preventDefault();
+        window.toggleMenu();
+      });
+    }
   };
 
   // ===== RENDER MOBILE NAV =====
