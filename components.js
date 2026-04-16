@@ -170,12 +170,6 @@
     div.innerHTML = links;
     nav.appendChild(div);
   };
-    var div = document.createElement('div');
-    div.className = 'mobile-nav';
-    div.id = 'mobileNav';
-    div.innerHTML = links;
-    nav.appendChild(div);
-  };
 
   // ===== RENDER FOOTER =====
   window.renderFooter = function () {
