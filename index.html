@@ -396,11 +396,11 @@
       background: #FFFFFF;
       border: 1.5px solid var(--border);
       border-radius: var(--radius);
-      padding: 14px 24px;
+      padding: 10px 16px;
       text-decoration: none;
       color: var(--text);
       transition: all 0.2s;
-      min-width: 180px;
+      min-width: 140px;
       box-shadow: 0 2px 12px rgba(0,0,0,0.08);
     }
 
@@ -420,20 +420,93 @@
       border-color: var(--border);
     }
 
-    .store-btn-icon { font-size: 28px; }
+    .store-btn-icon { font-size: 24px; }
 
     .store-btn-sub {
-      font-size: 10px;
+      font-size: 9px;
       color: var(--text-secondary);
       font-weight: 500;
     }
 
     .store-btn-name {
-      font-size: 16px;
+      font-size: 14px;
       font-weight: 700;
     }
 
+    /* SOCIAL SECTION */
+    .social-section {
+      padding: 60px 0;
+      background: var(--dark-2);
+      border-top: 1px solid var(--border);
+    }
+
+    .social-title {
+      font-size: 24px;
+      font-weight: 700;
+      margin-bottom: 32px;
+      color: var(--text);
+    }
+
+    .social-links {
+      display: flex;
+      justify-content: center;
+      gap: 24px;
+      flex-wrap: wrap;
+    }
+
+    .social-btn {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 12px;
+      padding: 24px 32px;
+      background: var(--card);
+      border: 1.5px solid var(--border);
+      border-radius: var(--radius);
+      text-decoration: none;
+      color: var(--text);
+      font-weight: 600;
+      font-size: 14px;
+      transition: all 0.3s;
+    }
+
+    .social-btn:hover {
+      border-color: var(--primary);
+      transform: translateY(-4px);
+      box-shadow: 0 8px 24px rgba(0,0,0,0.1);
+    }
+
+    .social-icon {
+      font-size: 32px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 52px;
+      height: 52px;
+      background: rgba(255,168,0,0.1);
+      border-radius: 50%;
+    }
+
+    .social-btn.instagram:hover .social-icon {
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      color: white;
+    }
+
+    .social-btn.facebook:hover .social-icon {
+      background: #1877F2;
+      color: white;
+    }
+
+    .social-btn.linkedin:hover .social-icon {
+      background: #0A66C2;
+      color: white;
+    }
+
     @media (max-width: 768px) {
+      .social-section { padding: 40px 0; }
+      .social-links { gap: 16px; }
+      .social-btn { padding: 16px 20px; }
+      .social-icon { width: 40px; height: 40px; font-size: 24px; }
       .hero-grid { grid-template-columns: 1fr; gap: 48px; }
       .phone-wrapper { order: -1; }
       .steps { grid-template-columns: 1fr; }
@@ -631,12 +704,35 @@
           <div class="store-btn-name">App Store</div>
         </div>
       </a>
-      <a href="#" class="store-btn">
+      <div class="store-btn store-btn-disabled">
         <span class="store-btn-icon"></span>
         <div>
-          <div class="store-btn-sub" data-fr="Disponible sur" data-en="Available on">Disponible sur</div>
+          <div class="store-btn-sub" data-fr="Disponible bientôt" data-en="Coming soon">Disponible bientôt</div>
           <div class="store-btn-name">Google Play</div>
         </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SOCIAL NETWORKS -->
+<section class="social-section">
+  <div class="container">
+    <div class="text-center">
+      <h3 class="social-title" data-fr="Rejoignez-nous sur les réseaux" data-en="Follow us on social media">Rejoignez-nous sur les réseaux</h3>
+    </div>
+    <div class="social-links">
+      <a href="https://www.instagram.com/fidee.app?igsh=MTVkeThjeGxtbGU3aQ==" target="_blank" class="social-btn instagram">
+        <span class="social-icon">📷</span>
+        <span data-fr="Instagram" data-en="Instagram">Instagram</span>
+      </a>
+      <a href="https://www.facebook.com/share/18QEkgE79X/?mibextid=wwXIfr" target="_blank" class="social-btn facebook">
+        <span class="social-icon">f</span>
+        <span data-fr="Facebook" data-en="Facebook">Facebook</span>
+      </a>
+      <a href="https://www.linkedin.com/company/fidee-app/" target="_blank" class="social-btn linkedin">
+        <span class="social-icon">in</span>
+        <span data-fr="LinkedIn" data-en="LinkedIn">LinkedIn</span>
       </a>
     </div>
   </div>
