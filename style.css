@@ -56,10 +56,10 @@ nav {
 
 .nav-logo-image {
   height: 42px;
-  width: auto;
+  width: 120px;
   display: block;
-  transform: scale(1.8);
-  transform-origin: left center;
+  object-fit: contain;
+  object-position: left center;
 }
 
 .nav-links {
@@ -419,8 +419,8 @@ footer {
 /* MOBILE NAV */
 .mobile-nav {
   display: none;
-  position: fixed;
-  top: 68px;
+  position: absolute;
+  top: 100%;
   left: 0;
   right: 0;
   background: var(--dark-2);
@@ -428,7 +428,6 @@ footer {
   padding: 16px 24px 24px;
   flex-direction: column;
   gap: 4px;
-  z-index: 99;
 }
 
 .mobile-nav.open { display: flex; }

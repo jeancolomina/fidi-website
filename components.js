@@ -140,13 +140,13 @@
         return;
     }
 
-    var el = document.getElementById('mobilenav-placeholder');
-    if (!el) return;
+    var nav = document.getElementById('navbar');
+    if (!nav) return;
     var div = document.createElement('div');
     div.className = 'mobile-nav';
     div.id = 'mobileNav';
     div.innerHTML = links;
-    el.replaceWith(div);
+    nav.appendChild(div);
   };
 
   // ===== RENDER FOOTER =====
