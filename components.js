@@ -102,16 +102,26 @@
     nav.id = 'navbar';
     nav.innerHTML = html;
     el.replaceWith(nav);
+
+    // Direct approach: set onclick attribute on hamburger button
     var btn = nav.querySelector('.hamburger');
     if (btn) {
-      btn.addEventListener('touchend', function (e) {
-        e.preventDefault();
-        window.toggleMenu();
-      }, false);
-      btn.addEventListener('click', function (e) {
-        window.toggleMenu();
-      }, false);
+      btn.setAttribute('onclick', 'window.toggleMenu(); return false;');
     }
+
+    // Fallback: event delegation
+    nav.addEventListener('click', function (e) {
+      if (e.target.closest('.hamburger')) {
+        window.toggleMenu();
+      }
+    }, false);
+    nav.addEventListener('touchend', function (e) {
+      if (e.target.closest('.hamburger')) {
+        e.preventDefault();
+        e.stopPropagation();
+        window.toggleMenu();
+      }
+    }, { passive: false });
   };
 
   // ===== RENDER MOBILE NAV =====
@@ -146,12 +156,20 @@
           + mobileLink('comment-ca-marche.html', 'Comment ça marche')
           + mobileLink('support.html', 'Support');
         break;
-      default:
+      case 'reset-password.html':
         return;
+      default:
+        links = mobileLink('index.html', 'Accueil');
     }
 
     var nav = document.getElementById('navbar');
     if (!nav) return;
+    var div = document.createElement('div');
+    div.className = 'mobile-nav';
+    div.id = 'mobileNav';
+    div.innerHTML = links;
+    nav.appendChild(div);
+  };
     var div = document.createElement('div');
     div.className = 'mobile-nav';
     div.id = 'mobileNav';
