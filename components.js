@@ -92,9 +92,9 @@
         break;
     }
 
-    var html = '<a href="index.html" class="nav-logo"><img src="fidee_logo_noir.svg" alt="FIDEE" class="nav-logo-image"></a>'
+    var html = '<a href="index.html" class="nav-logo"><img src="fidee_logo_blanc.svg" alt="FIDEE" class="nav-logo-image"></a>'
       + '<ul class="nav-links">' + links + '</ul>'
-      + (hamburger ? '<button class="hamburger" onclick="toggleMenu()" type="button" aria-label="Menu"><span></span><span></span><span></span></button>' : '');
+      + (hamburger ? '<button class="hamburger" type="button" aria-label="Menu"><span></span><span></span><span></span></button>' : '');
 
     var el = document.getElementById('navbar-placeholder');
     if (!el) return;
@@ -107,7 +107,10 @@
       btn.addEventListener('touchend', function (e) {
         e.preventDefault();
         window.toggleMenu();
-      });
+      }, false);
+      btn.addEventListener('click', function (e) {
+        window.toggleMenu();
+      }, false);
     }
   };
 
@@ -165,7 +168,7 @@
       + '<div class="footer-grid">'
       + '<div class="footer-brand">'
       + '<a href="index.html" class="nav-logo" style="margin-bottom:16px; display:inline-flex;">'
-      + '<img src="fidee_logo_noir.svg" alt="FIDEE" class="nav-logo-image"></a>'
+      + '<img src="fidee_logo_blanc.svg" alt="FIDEE" class="nav-logo-image"></a>'
       + '<p data-fr="La fidélité réinventée." data-en="Local loyalty reinvented.">La fidélité réinventée.</p>'
       + '</div>'
       + '<div>'
